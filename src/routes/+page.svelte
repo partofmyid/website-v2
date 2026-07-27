@@ -14,12 +14,18 @@
     "iostpa",
   ];
 
+  function slowIncrement(targetCount: number, varName: keyof typeof counters, delay = 100) {
+    for (let i = 0; i < targetCount; i++) setTimeout(() => counters[varName] = i+1, delay*i);
+  }
+  
   onMount(async () => {
     const count = await fetch('https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/stats/count.txt').then(r => r.text());
     const repoStats = await fetch('https://api.github.com/repos/partofmyid/register').then(r => r.json());
     const orgMembers = await fetch('https://api.github.com/orgs/partofmyid/members').then(r => r.json());
 
-    
+    slowIncrement(parseInt(count) || 0, 'subdomains', 50);
+    slowIncrement(repoStats?.stargazers_count, 'stars', 75);
+    slowIncrement(repoStats?.forks, 'forks', 75);
   });
 </script>
 
