@@ -1,22 +1,29 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  let members = $state([]);
   let nameRolling = $state('your-name');
   let counters = $state({
     stars: 0,
     forks: 0,
     subdomains: 0,
   });
-  const NAMES = [
-    "satr14",
-    "orangc",
-    "stefdp",
-    "iostpa",
-  ];
 
   function slowIncrement(targetCount: number, varName: keyof typeof counters, delay = 100) {
     for (let i = 0; i < targetCount; i++) setTimeout(() => counters[varName] = i+1, delay*i);
   }
+
+  function typeCycleEntries(entries: string[], delay = 100, pauseBetween = 500) {
+    let charIndex = 0;
+    let extraDelay = 0;
+    for (let i = 0; i < entries.length; i++) {
+      const name = entries[i];
+      for (let char = 0; char < name.length; char++)
+        setTimeout(() => nameRolling = name.slice(0, char + 1), delay * (charIndex++) + extraDelay);
+      extraDelay += pauseBetween;
+    }
+  }
+
   
   onMount(async () => {
     const count = await fetch('https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/stats/count.txt').then(r => r.text());
@@ -26,6 +33,24 @@
     slowIncrement(parseInt(count) || 0, 'subdomains', 50);
     slowIncrement(repoStats?.stargazers_count, 'stars', 75);
     slowIncrement(repoStats?.forks, 'forks', 75);
+
+    setTimeout(() => typeCycleEntries([
+      "satr14",
+      "orangc",
+      "iostpa",
+      "stefdp",
+      "your-name",
+    ], 200), 500);
+
+    members = orgMembers?.map((e: {
+      login?: string;
+      avatar_url?: string;
+      html_url?: string;
+    }) => ({
+      username: e?.login,
+      picture: e?.avatar_url,
+      link: e?.html_url,
+    })) || [];
   });
 </script>
 
