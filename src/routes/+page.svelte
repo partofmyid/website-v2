@@ -56,12 +56,17 @@
 
 <div class="h-full flex justify-center items-center">
   <div class="flex flex-col justify-center items-center gap-6">
-    <div>
+    <div class="flex flex-col items-center">
+      <span class="block w-fit bg-ctp-lavender text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
       <h1 class="text-center text-4xl font-bold">
         <span class="text-ctp-mauve">{nameRolling}</span>.part-of.<span class="text-ctp-red">my.id</span>
       </h1>
-      <p class="text-center">your own personal id for your website</p>
+      <p class="text-center text-lg">your own personal id for your website</p>
     </div>
+    <form>
+      <input class="bg-ctp-base text-ctp-text" type="text" placeholder="steve.is-my.id">
+      <button class="bg-ctp-red text-ctp-crust py-2 px-4 font-bold" type="submit">search</button>
+    </form>
     <div class="flex justify-center items-center gap-6">
       <div class="flex flex-col justify-center items-center text-ctp-yellow">
         <strong class="text-4xl">{counters.stars}</strong>
