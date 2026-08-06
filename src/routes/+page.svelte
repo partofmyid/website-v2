@@ -59,7 +59,7 @@
 <div class="h-full flex justify-center items-center">
   <div class="flex flex-col justify-center items-center gap-6">
     <div class="flex flex-col items-center">
-      <span class="block w-fit bg-ctp-lavender text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
+      <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
       <h1 class="text-center text-4xl font-bold">
         <span class="text-ctp-mauve">{nameRolling}</span>.part-of.<span class="text-ctp-red">my.id</span>
       </h1>
