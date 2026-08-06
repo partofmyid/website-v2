@@ -56,7 +56,7 @@
 
 <div class="-z-10 fixed top-0 left-0 w-full h-full bg-size-[40px_40px] opacity-25 rotate-1" style="background-image: radial-gradient(white 1px, transparent 0);"></div>
 
-<div class="h-full flex justify-center items-center">
+<div class="h-[95%] flex justify-center items-center">
   <div class="flex flex-col justify-center items-center gap-6">
     <div class="flex flex-col items-center">
       <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
@@ -84,4 +84,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<p id="abt" class="text-center underline text-lg"><a href="/#abt">what is this?</a></p>
+
+<div class="max-w-3xl mx-auto h-90 flex flex-col gap-8 justify-center items-center">
+  <p class="text-normal text-center text-xl">
+    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice subdomain for your website for free.
+  </p>
+  <h2 class="text-2xl font-bold">why us?</h2>
 </div>

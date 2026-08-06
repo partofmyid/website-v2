@@ -3,6 +3,6 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-html, body { @apply h-full; }
+html, body { @apply h-full scroll-smooth; }
 body { @apply text-ctp-text bg-ctp-crust; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
