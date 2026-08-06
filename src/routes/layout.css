@@ -5,3 +5,4 @@
 
 html, body { @apply h-full; }
 body { @apply text-ctp-text bg-ctp-crust; }
+nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
