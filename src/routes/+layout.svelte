@@ -17,3 +17,13 @@
 </header>
 
 {@render children()}
+
+<footer class="border-t border-ctp-overlay0 py-4 bg-ctp-crust">
+  <div class="max-w-3xl mx-auto flex justify-between gap-8">
+    <p>Made in 🇮🇩 by <a class="underline" href="https://satr14.my.id">satr14</a></p>
+    <div class="flex gap-4">
+      <!-- <a href=""><img src="https://cdn.simpleicons.org/discord/cdd6f4" alt="discord" class="w-6 aspect-square"></a> -->
+      <a href="https://github.com/partofmyid"><img src="https://cdn.simpleicons.org/github/cdd6f4" alt="github" class="w-6 aspect-square"></a>
+    </div>
+  </div>
+</footer>
