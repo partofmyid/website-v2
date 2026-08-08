@@ -94,7 +94,7 @@
 
 <div class="homepage-section centered">
   <p class="text-xl">
-    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice subdomain for your website for free.
+    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice looking subdomain for your website for free.
   </p>
   <h2>why us?</h2>
 </div>
@@ -102,7 +102,7 @@
 <div class="homepage-section dynamic">
   <div>
     <h3>Sleek and memorable web address</h3>
-    <p>With part-of.my.id, you can have a nice subdomain for your website thats is easy to remember and share.</p>
+    <p>With part-of.my.id, you can have a nice subdomain for your website that's is easily memorable.</p>
   </div>
   <div class="flex flex-col items-end text-nowrap text-2xl">
     <s class="text-ctp-red italic">satr14.github.io</s>
@@ -118,14 +118,14 @@
   </div>
   <div>
     <h3>Free and open-source</h3>
-    <p>part-of.my.id is a free and open-source project hosted on GitHub. All you need to get a domain is to open a pull request on our register repo with your DNS records.</p>
+    <p>part-of.my.id is a free and open-source project hosted on GitHub. All you need to do to get a subdomain is to open a pull request on our register repo with your DNS records.</p>
   </div>
 </div>
 
 <div class="homepage-section dynamic reverse">
   <div>
     <h3>Powered by Cloudflare</h3>
-    <p>With Cloudflare's global network, your subdomain can opt in to proxy features like CNAME flattening, DDoS protection, caching, etc.</p>
+    <p>With Cloudflare, your subdomain can opt into proxy features like CNAME flattening, DDoS protection, caching, etc. </p>
   </div>
   <div>
     <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Cloudflare Logo" class="w-20 sm:w-60">
@@ -142,7 +142,7 @@
   </div>
   <div>
     <h3>Community-driven project</h3>
-    <p>By the same maintainers of is-a.dev. Rest assured you will have a smooth registration process and little-to-no downtime.</p>
+    <p>By the maintainers of is-a.dev. Rest assured you will have a smooth registration process and quick support answers.</p>
   </div>
 </div>
 
