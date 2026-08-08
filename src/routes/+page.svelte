@@ -1,7 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let members = $state([]);
+  let members: {
+    username: string;
+    picture: string;
+    link: string;
+  }[] = $state([]);
   let nameRolling = $state('your-name');
   let counters = $state({
     stars: 0,
@@ -43,13 +47,13 @@
 
     const orgMembers = await fetch('https://api.github.com/orgs/partofmyid/members').then(r => r.json());
     members = orgMembers?.map((e: {
-      login?: string;
-      avatar_url?: string;
-      html_url?: string;
+      login: string;
+      avatar_url: string;
+      html_url: string;
     }) => ({
-      username: e?.login,
-      picture: e?.avatar_url,
-      link: e?.html_url,
+      username: e.login,
+      picture: e.avatar_url,
+      link: e.html_url,
     })) || [];
   });
 </script>
