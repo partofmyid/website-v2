@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import 'tailwindcss';
 @import "@catppuccin/tailwindcss/mocha.css";
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@theme {
+  --font-custom: "Lora", serif;
+}
+
 html, body { @apply h-full scroll-smooth; }
-body { @apply text-ctp-text bg-ctp-crust; }
+body { @apply text-ctp-text bg-ctp-crust font-[Lora]; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 
 .homepage-section { @apply max-w-3xl mx-auto py-16 px-8; }
