@@ -131,3 +131,17 @@
     <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Cloudflare Logo" class="w-140">
   </div>
 </div>
+
+<div class="homepage-section dynamic">
+  <div class="grid gap-1 grid-cols-2">
+  {#each members as member}
+    <a href={member.link}>
+      <img src={member.picture} alt={member.username} class="w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
+    </a>
+  {/each}
+  </div>
+  <div>
+    <h3>Community-driven project</h3>
+    <p>By the same maintainers of is-a.dev. Rest assured you will have a smooth registration process and little-to-no downtime.</p>
+  </div>
+</div>
