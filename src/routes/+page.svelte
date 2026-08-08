@@ -110,7 +110,7 @@
 
 <div class="homepage-section dynamic">
   <div>
-    <img src="/gh.png" alt="Github Logo" class="w-60 aspect-square">
+    <img src="https://cdn.simpleicons.org/github/89dceb" alt="Github Logo" class="w-60 aspect-square">
   </div>
   <div>
     <h3>Free and open-source</h3>
@@ -124,6 +124,6 @@
     <p>With Cloudflare's global network, your subdomain can opt in to proxy features like CNAME flattening, DDoS protection, caching, etc.</p>
   </div>
   <div>
-    <img src="/cf.png" alt="Cloudflare Logo" class="w-140">
+    <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Cloudflare Logo" class="w-140">
   </div>
 </div>
