@@ -97,7 +97,7 @@
 
 <div class="homepage-section dynamic">
   <div>
-    <h3 class="text-2xl font-bold">Sleek and memorable web address</h3>
+    <h3>Sleek and memorable web address</h3>
     <p>With part-of.my.id, you can have a nice subdomain for your website thats is easy to remember and share.</p>
   </div>
   <div class="flex flex-col items-end text-nowrap text-xl">
@@ -105,5 +105,25 @@
     <s class="text-ctp-red italic">satr14.pages.dev</s>
     <b class="text-ctp-green italic font-semibold">satr14.part-of.my.id</b>
     <b class="text-ctp-green italic font-semibold"><span class="font-extrabold text-ctp-yellow">NEW:</span> satr14.is-my.id</b>
+  </div>
+</div>
+
+<div class="homepage-section dynamic">
+  <div>
+    <img src="/gh.png" alt="Github Logo" class="w-60 aspect-square">
+  </div>
+  <div>
+    <h3>Free and open-source</h3>
+    <p>part-of.my.id is a free and open-source project hosted on GitHub. All you need to get a domain is to open a pull request on our register repo with your DNS records.</p>
+  </div>
+</div>
+
+<div class="homepage-section dynamic">
+  <div>
+    <h3>Powered by Cloudflare</h3>
+    <p>With Cloudflare's global network, your subdomain can opt in to proxy features like CNAME flattening, DDoS protection, caching, etc.</p>
+  </div>
+  <div>
+    <img src="/cf.png" alt="Cloudflare Logo" class="w-140">
   </div>
 </div>
