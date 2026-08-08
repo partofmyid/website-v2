@@ -70,8 +70,8 @@
       <p class="text-center text-lg">your own personal id for your website</p>
     </div>
     <form>
-      <input class="bg-ctp-base text-ctp-text" type="text" placeholder="steve.is-my.id">
-      <button class="bg-ctp-lavender text-ctp-crust py-2 px-4 font-bold" type="submit">search</button>
+      <input type="text" placeholder="steve.is-my.id">
+      <button type="submit">search</button>
     </form>
     <div class="flex justify-center items-center gap-6">
       <div class="flex flex-col justify-center items-center text-ctp-yellow">
