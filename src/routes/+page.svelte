@@ -92,11 +92,11 @@
 
 <p id="abt" class="text-center underline text-lg"><a href="/#abt">what is this?</a></p>
 
-<div class="homepage-section flex flex-col gap-8 justify-center items-center">
-  <p class="text-normal text-center text-xl">
+<div class="homepage-section centered">
+  <p class="text-center text-xl">
     part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice subdomain for your website for free.
   </p>
-  <h2 class="text-2xl font-bold">why us?</h2>
+  <h2>why us?</h2>
 </div>
 
 <div class="homepage-section dynamic">
@@ -104,7 +104,7 @@
     <h3>Sleek and memorable web address</h3>
     <p>With part-of.my.id, you can have a nice subdomain for your website thats is easy to remember and share.</p>
   </div>
-  <div class="flex flex-col items-end text-nowrap text-xl">
+  <div class="flex flex-col items-end text-nowrap text-2xl">
     <s class="text-ctp-red italic">satr14.github.io</s>
     <s class="text-ctp-red italic">satr14.pages.dev</s>
     <b class="text-ctp-green italic font-semibold">satr14.part-of.my.id</b>
@@ -114,7 +114,7 @@
 
 <div class="homepage-section dynamic">
   <div>
-    <img src="https://cdn.simpleicons.org/github/89dceb" alt="Github Logo" class="w-60 aspect-square">
+    <img src="https://cdn.simpleicons.org/github/89dceb" alt="Github Logo" class="w-20 sm:w-60 aspect-square">
   </div>
   <div>
     <h3>Free and open-source</h3>
@@ -122,21 +122,21 @@
   </div>
 </div>
 
-<div class="homepage-section dynamic">
+<div class="homepage-section dynamic reverse">
   <div>
     <h3>Powered by Cloudflare</h3>
     <p>With Cloudflare's global network, your subdomain can opt in to proxy features like CNAME flattening, DDoS protection, caching, etc.</p>
   </div>
   <div>
-    <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Cloudflare Logo" class="w-140">
+    <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Cloudflare Logo" class="w-20 sm:w-60">
   </div>
 </div>
 
-<div class="homepage-section dynamic">
-  <div class="grid gap-1 grid-cols-2">
+<div class="homepage-section dynamic reverse">
+  <div class="flex sm:grid gap-1 grid-cols-2">
   {#each members as member}
     <a href={member.link}>
-      <img src={member.picture} alt={member.username} class="w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
+      <img src={member.picture} alt={member.username} class="w-14 sm:w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
     </a>
   {/each}
   </div>
