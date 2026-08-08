@@ -93,7 +93,7 @@
 <p id="abt" class="text-center underline text-lg"><a href="/#abt">what is this?</a></p>
 
 <div class="homepage-section centered">
-  <p class="text-center text-xl">
+  <p class="text-xl">
     part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice subdomain for your website for free.
   </p>
   <h2>why us?</h2>
@@ -144,4 +144,12 @@
     <h3>Community-driven project</h3>
     <p>By the same maintainers of is-a.dev. Rest assured you will have a smooth registration process and little-to-no downtime.</p>
   </div>
+</div>
+
+<div class="homepage-section centered">
+  <div>
+    <h2>Make your website stand out!</h2>
+    <p>Start by searching for your desired subdomain in the search bar above.</p>
+  </div>
+  <a href="/" class="text-center underline text-lg">Take me there!</a>
 </div>

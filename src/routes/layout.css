@@ -11,6 +11,6 @@ nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 .homepage-section h2 { @apply text-3xl font-bold; }
 .homepage-section h3 { @apply text-2xl font-bold; }
 .homepage-section p { @apply text-lg; }
-.homepage-section.centered { @apply flex flex-col gap-8 justify-center items-center; }
+.homepage-section.centered { @apply flex flex-col gap-8 justify-center items-center text-center; }
 .homepage-section.dynamic { @apply flex flex-col sm:flex-row gap-8 sm:justify-center sm:items-center; }
 .homepage-section.dynamic.reverse { @apply flex-col-reverse sm:flex-row; }
