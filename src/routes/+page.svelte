@@ -88,9 +88,22 @@
 
 <p id="abt" class="text-center underline text-lg"><a href="/#abt">what is this?</a></p>
 
-<div class="max-w-3xl mx-auto h-90 flex flex-col gap-8 justify-center items-center">
+<div class="homepage-section flex flex-col gap-8 justify-center items-center">
   <p class="text-normal text-center text-xl">
     part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice subdomain for your website for free.
   </p>
   <h2 class="text-2xl font-bold">why us?</h2>
+</div>
+
+<div class="homepage-section dynamic">
+  <div>
+    <h3 class="text-2xl font-bold">Sleek and memorable web address</h3>
+    <p>With part-of.my.id, you can have a nice subdomain for your website thats is easy to remember and share.</p>
+  </div>
+  <div class="flex flex-col items-end text-nowrap text-xl">
+    <s class="text-ctp-red italic">satr14.github.io</s>
+    <s class="text-ctp-red italic">satr14.pages.dev</s>
+    <b class="text-ctp-green italic font-semibold">satr14.part-of.my.id</b>
+    <b class="text-ctp-green italic font-semibold"><span class="font-extrabold text-ctp-yellow">NEW:</span> satr14.is-my.id</b>
+  </div>
 </div>

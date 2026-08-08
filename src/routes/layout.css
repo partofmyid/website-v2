@@ -6,3 +6,8 @@
 html, body { @apply h-full scroll-smooth; }
 body { @apply text-ctp-text bg-ctp-crust; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
+
+.homepage-section { @apply max-w-3xl mx-auto py-24 px-8; }
+.homepage-section h3 { @apply text-2xl font-bold; }
+.homepage-section p { @apply text-xl; }
+.homepage-section.dynamic { @apply sm:flex gap-8 justify-center items-center; }
