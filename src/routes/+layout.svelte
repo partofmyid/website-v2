@@ -5,7 +5,10 @@
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<script defer src="https://a.satr14.my.id/script.js" data-website-id="828b48bc-6242-44a9-9d3e-9ab7603411c2"></script>
+</svelte:head>
 
 <header class="max-w-3xl fixed top-0 left-0 right-0 flex justify-between px-4 pb-2 pt-1 mx-auto text-lg rounded-b-lg border-b border-x border-ctp-overlay0 bg-ctp-crust">
   <h1 class="font-bold text-ctp-lavender"><a href="/">part-of.my.id</a></h1>
