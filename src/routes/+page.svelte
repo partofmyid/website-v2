@@ -58,8 +58,6 @@
   });
 </script>
 
-<div class="-z-10 fixed top-0 left-0 w-full h-full bg-size-[40px_40px] opacity-25 rotate-1" style="background-image: radial-gradient(white 1px, transparent 0);"></div>
-
 <div class="h-[95%] flex justify-center items-center">
   <div class="flex flex-col justify-center items-center gap-6">
     <div class="flex flex-col items-center">

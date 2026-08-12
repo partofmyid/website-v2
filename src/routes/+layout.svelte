@@ -19,6 +19,8 @@
   </nav>
 </header>
 
+<div class="-z-10 fixed top-0 left-0 w-full h-full bg-size-[40px_40px] opacity-25 rotate-1" style="background-image: radial-gradient(white 1px, transparent 0);"></div>
+
 {@render children()}
 
 <footer class="border-t border-ctp-overlay0 py-4 bg-ctp-crust">
