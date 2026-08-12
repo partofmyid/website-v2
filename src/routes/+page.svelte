@@ -146,7 +146,7 @@
 
 <div class="homepage-section centered">
   <div>
-    <h2>Make your website stand out!</h2>
+    <h2>Make your site stand out!</h2>
     <p>Start by searching for your desired subdomain in the search bar above.</p>
   </div>
   <a href="/" class="text-center underline text-lg">Take me there!</a>
