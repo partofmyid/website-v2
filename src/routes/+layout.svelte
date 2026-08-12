@@ -14,7 +14,7 @@
   <h1 class="font-bold text-ctp-lavender"><a href="/">part-of.my.id</a></h1>
   <nav class="flex gap-4">
     <a href="https://github.com/partofmyid/register">repo</a>
-    <a href="/docs">docs</a>
+    <a href="/d/quickstart">docs</a>
     <a href="/config">config</a>
   </nav>
 </header>
