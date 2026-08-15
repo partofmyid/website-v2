@@ -15,7 +15,7 @@ nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 button { @apply cursor-pointer; }
 
 form input[type="text"] { @apply bg-ctp-base text-ctp-text border-ctp-overlay0; }
-form button[type="submit"] { @apply bg-ctp-lavender text-ctp-crust py-2 px-4 font-bold; }
+form button[type="submit"] { @apply bg-ctp-lavender text-ctp-crust py-2 px-4 font-bold disabled:opacity-70 disabled:cursor-not-allowed; }
 
 article { @apply 
 prose-headings:text-ctp-lavender
