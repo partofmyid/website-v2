@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { onMount } from "svelte";
 
   let members: {
@@ -12,6 +13,7 @@
     forks: 0,
     subdomains: 0,
   });
+  let subdomainSearch = $state('');
 
   function slowIncrement(targetCount: number, varName: keyof typeof counters, delay = 100) {
     for (let i = 0; i < targetCount; i++) setTimeout(() => counters[varName] = i+1, delay*i);
@@ -63,12 +65,12 @@
     <div class="flex flex-col items-center">
       <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
       <h1 class="text-center text-4xl font-bold">
-        <span class="text-ctp-mauve">{nameRolling}</span>.part-of.<span class="text-ctp-red">my.id</span>
+        <span class="text-ctp-mauve">{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</span>{#if subdomainSearch.endsWith('.is-my.id')}.is-my.<span class="text-ctp-red">id</span>{:else}.part-of.<span class="text-ctp-red">my.id</span>{/if}
       </h1>
       <p class="text-center text-lg">your own personal id for your website</p>
     </div>
-    <form>
-      <input type="text" placeholder="steve.is-my.id">
+    <form onsubmit={(e) => { e.preventDefault(); goto(`/q/${subdomainSearch}`); }}>
+      <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id">
       <button type="submit">search</button>
     </form>
     <div class="flex justify-center items-center gap-6">
