@@ -8,6 +8,7 @@
   --font-custom: "Lora", serif;
 }
 
+* { @apply scrollbar-thin scrollbar-track-ctp-base scrollbar-thumb-ctp-overlay0; }
 html, body { @apply h-full scroll-smooth; }
 body { @apply text-ctp-text bg-ctp-crust font-[Lora]; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
