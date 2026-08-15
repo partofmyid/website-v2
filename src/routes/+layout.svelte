@@ -2,6 +2,9 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 
+	import '@fsegurai/marked-extended-alert/styles/alert.css';
+	import '@fsegurai/marked-extended-alert/styles/alert-theme.css';
+
 	let { children } = $props();
 </script>
 
