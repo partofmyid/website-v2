@@ -17,6 +17,21 @@ button { @apply cursor-pointer; }
 form input[type="text"] { @apply bg-ctp-base text-ctp-text border-ctp-overlay0; }
 form button[type="submit"] { @apply bg-ctp-lavender text-ctp-crust py-2 px-4 font-bold; }
 
+article { @apply 
+prose-headings:text-ctp-lavender
+prose-code:text-ctp-subtext0
+prose-pre:bg-ctp-base
+
+prose-p:text-ctp-text
+prose-a:text-ctp-text
+prose-li:text-ctp-text
+prose-strong:text-ctp-text
+
+prose max-w-none; }
+
+.marked-extended-alert-title { @apply m-0; }
+.marked-extended-alert-content *:first-child { @apply mt-0; }
+
 .homepage-section { @apply max-w-3xl mx-auto py-16 px-8; }
 .homepage-section h2 { @apply text-3xl font-bold; }
 .homepage-section h3 { @apply text-2xl font-bold; }

@@ -30,14 +30,5 @@
     {/each}
   </nav>
   <article class="
-    prose-headings:text-ctp-lavender
-    prose-code:text-ctp-subtext0
-    prose-pre:bg-ctp-base
-    
-    prose-p:text-ctp-text
-    prose-a:text-ctp-text
-    prose-li:text-ctp-text
-    prose-strong:text-ctp-text
-    
-    prose max-w-none">{@html html}</article>
+">{@html html}</article>
 </div>
