@@ -1,7 +1,7 @@
 <script lang="ts">
   import { marked } from 'marked';
-  import { page } from '$app/state';
-  import { onMount } from 'svelte';
+  import type { PageProps } from "./$types";
+  let { params }: PageProps = $props();
 
   const docs = {
     'Quickstart Registration Guide': 'quickstart',
@@ -11,27 +11,28 @@
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
   };
-  let html = $state('');
+  let html = $state('Loading...');
 
   async function loadDoc(doc?: string) {
-    if (!doc) return 'Click a documentation page above to view.';
+    if (!doc) return 'No document specified.';
     const markdown = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/docs/${doc}.md`)
       .then(res => res.text());
     return await marked.parse(markdown);
   }
 
   $effect(() => {
-    loadDoc(page.params.doc).then(doc => html = doc)
+    html = 'Loading...'
+    loadDoc(params.doc).then(doc => html = doc)
   });
 </script>
 
 
-<div class="w-3xl mx-auto mt-16 mb-6 px-8">
+<div class="page-container">
   <span class="font-bold">Docs Navigation:</span>
   <nav class="mb-4 flex flex-col ml-2">
     {#each Object.entries(docs) as [name, link]}
-      <a href='/d/{link}' class="{link === page.params.doc ? 'opacity-70' : 'opacity-100'} w-fit group">
-        {link} <b class="{link === page.params.doc ? 'inline' : 'hidden'} group-hover:inline">- {name}</b>
+      <a href='/d/{link}' class="{link === params.doc ? 'opacity-70' : 'opacity-100'} w-fit group">
+        {link}.md <b class="{link === params.doc ? 'inline' : 'hidden'} group-hover:inline"> - {name}</b>
       </a>
     {/each}
   </nav>
