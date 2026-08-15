@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { marked } from 'marked';
+  import { loadDoc } from '$lib';
   import type { PageProps } from "./$types";
   let { params }: PageProps = $props();
 
@@ -13,16 +13,9 @@
   };
   let html = $state('Loading...');
 
-  async function loadDoc(doc?: string) {
-    if (!doc) return 'No document specified.';
-    const markdown = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/docs/${doc}.md`)
-      .then(res => res.text());
-    return await marked.parse(markdown);
-  }
-
   $effect(() => {
     html = 'Loading...'
-    loadDoc(params.doc).then(doc => html = doc)
+    loadDoc(`docs/${params.doc}.md`).then(doc => html = doc)
   });
 </script>
 
