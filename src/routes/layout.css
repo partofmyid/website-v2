@@ -24,6 +24,7 @@ prose-pre:bg-ctp-base
 prose-p:text-ctp-text
 prose-a:text-ctp-text
 prose-li:text-ctp-text
+prose-li:marker:text-ctp-subtext0
 prose-strong:text-ctp-text
 prose max-w-none; }
 
