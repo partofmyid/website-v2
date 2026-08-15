@@ -27,7 +27,7 @@ prose-li:text-ctp-text
 prose-strong:text-ctp-text
 prose max-w-none; }
 
-.marked-extended-alert-title { @apply m-0; }
+.marked-extended-alert-title { @apply m-0 font-bold; }
 .marked-extended-alert-content *:first-child { @apply mt-0; }
 
 .homepage-section { @apply max-w-3xl mx-auto py-16 px-8; }
