@@ -48,12 +48,15 @@
 </script>
 
 <div class="page-container">
+  <span class="font-bold">README.md announcements:</span>
   <article>{@html announcements}</article>
   <p>Please make sure your subdomain meets our <a href="/d/references" class="underline">filename requirements</a></p>
   <form onsubmit={(e) => { e.preventDefault(); goto(`/q/${input}`) }} class="w-full flex gap-2 my-1">
     <input type="text" bind:value={input} class="flex-1">
     <button type="submit" disabled={input === '' || input === params.query}>search</button>
   </form>
+  {#if input !== params.query}<span>press enter to query</span>{/if}
+  {#if loading}<span class="animate-pulse">loading...</span>{/if}
   <ul>
     {#each apexDomains as {apex, owner}}
       <li class="{
