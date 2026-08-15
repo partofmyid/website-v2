@@ -41,6 +41,7 @@
     prose-pre:bg-ctp-base
     
     prose-p:text-ctp-text
+    prose-a:text-ctp-text
     prose-li:text-ctp-text
     prose-strong:text-ctp-text
     
