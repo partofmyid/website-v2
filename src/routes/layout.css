@@ -23,3 +23,4 @@ form button[type="submit"] { @apply bg-ctp-lavender text-ctp-crust py-2 px-4 fon
 .homepage-section.centered { @apply flex flex-col gap-8 justify-center items-center text-center; }
 .homepage-section.dynamic { @apply flex flex-col sm:flex-row gap-8 sm:justify-center sm:items-center; }
 .homepage-section.dynamic.reverse { @apply flex-col-reverse sm:flex-row; }
+.page-container { @apply w-3xl mx-auto mt-16 mb-6 px-8; }
