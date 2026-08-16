@@ -60,14 +60,14 @@
   });
 </script>
 
-<div class="h-[95vh] flex justify-center items-center">
-  <div class="flex flex-col justify-center items-center gap-6">
-    <div class="flex flex-col items-center">
+<div class="h-[95vh] flex justify-center items-center gap-36">
+  <div class="flex flex-col gap-6 items-center lg:items-start">
+    <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
       <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
-      <h1 class="text-center text-4xl font-bold">
+      <h1 class="text-4xl font-bold w-105 text-nowrap shrink-0 lg:5xl">
         <span class="text-ctp-mauve">{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</span>{#if subdomainSearch.endsWith('.is-my.id')}.is-my.<span class="text-ctp-red">id</span>{:else}.part-of.<span class="text-ctp-red">my.id</span>{/if}
       </h1>
-      <p class="text-center text-lg">your own personal id for your website</p>
+      <p class="text-lg">your own personal id for your website</p>
     </div>
     <form onsubmit={(e) => { e.preventDefault(); goto(`/q/${subdomainSearch}`); }}>
       <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id">
@@ -85,6 +85,17 @@
       <div class="flex flex-col justify-center items-center text-ctp-blue">
         <strong class="text-4xl">{counters.forks}</strong>
         <span>forks</span>
+      </div>
+    </div>
+  </div>
+  <div class="hidden lg:flex justify-center items-center">
+    <div class="bg-ctp-red w-100 rounded-lg -rotate-5 font-sans flex flex-col gap-2 items-center pb-6 pt-4 text-center">
+      <div>
+        <h2 class="font-extrabold text-5xl">HELLO</h2>
+        <h3 class="font-extrabold text-xl">MY NAME IS</h3>
+      </div>
+      <div class="h-40 w-full bg-ctp-text flex justify-center items-center">
+        <p class="text-ctp-crust font-bold text-4xl font-[Lora]">{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</p>
       </div>
     </div>
   </div>
