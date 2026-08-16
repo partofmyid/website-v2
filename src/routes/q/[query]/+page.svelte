@@ -74,7 +74,7 @@
                   <a href="https://github.com/partofmyid/register/new/main/domains/{apex}?{new URLSearchParams({
                     filename: params.query + '.json',
                     message: `[website] add ${params.query}.${apex}`,
-                    file: '{}',
+                    value: '{}',
                   })}">register</a>
                 </button>
               {:else}
