@@ -23,6 +23,9 @@
     </nav>
   </header>
 
+  {let clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'}
+  <div class="-z-10 fixed top-0 left-0 w-40 aspect-square animate-spin bg-ctp-mantle scale-300 md:scale-400 [animation-duration:25s]" style="clip-path: {clipPath}"></div>
+  <div class="-z-10 fixed bottom-0 right-0 w-40 aspect-square animate-spin bg-ctp-mantle scale-300 md:scale-400 [animation-duration:25s]" style="clip-path: {clipPath}"></div>
   <div class="-z-10 fixed top-0 left-0 w-full h-full bg-size-[40px_40px] opacity-25 rotate-1" style="background-image: radial-gradient(white 1px, transparent 0);"></div>
 
   <main class="flex-1">
