@@ -69,7 +69,7 @@
       </h1>
       <p class="text-lg">your own personal id for your website</p>
     </div>
-    <form onsubmit={(e) => { e.preventDefault(); goto(`/q/${subdomainSearch}`); }}>
+    <form onsubmit={(e) => { e.preventDefault(); goto(`/query/${subdomainSearch}`); }}>
       <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id">
       <button type="submit">search</button>
     </form>
