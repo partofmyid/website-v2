@@ -71,10 +71,8 @@
             {#if !loading}
               {#if owner === ''}
                 <button class="bg-ctp-green text-ctp-crust px-2 text-base font-bold">
-                  <a href="https://github.com/partofmyid/register/new/main/domains/{apex}?{new URLSearchParams({
-                    filename: params.query + '.json',
-                    message: `[website] add ${params.query}.${apex}`,
-                    value: '{}',
+                  <a href="/record?{new URLSearchParams({
+                    apex, subdomain: params.query,
                   })}">register</a>
                 </button>
               {:else}

@@ -88,7 +88,7 @@
       </div>
     </div>
   </div>
-  <div class="hidden lg:flex justify-center items-center">
+  <div class="-z-10 hidden lg:flex justify-center items-center">
     <div class="bg-ctp-red w-100 rounded-lg -rotate-5 font-sans flex flex-col gap-2 items-center pb-6 pt-4 text-center">
       <div>
         <h2 class="font-extrabold text-5xl">HELLO</h2>
