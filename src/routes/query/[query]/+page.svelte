@@ -76,7 +76,9 @@
                   })}">register</a>
                 </button>
               {:else}
-                <span class="text-ctp-red">taken by <a href="https://github.com/{owner}" class="underline">{owner}</a></span>
+                <span class="text-ctp-red"><a class="underline" href="/record?{new URLSearchParams({
+                    apex, subdomain: params.query,
+                  })}">taken</a> by <a href="https://github.com/{owner}" class="underline">{owner}</a></span>
                 <img src="https://github.com/{owner}.png?size=32" alt="{owner}'s profile picture" class="h-8 aspect-square rounded-full outline-ctp-overlay0 outline">
               {/if}
             {/if}
