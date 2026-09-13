@@ -13,7 +13,9 @@ html, body { @apply h-full scroll-smooth; }
 body { @apply text-ctp-text bg-ctp-crust font-[Lora]; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 button { @apply cursor-pointer; }
+hr { @apply border-ctp-overlay0; }
 
+form input[type="checkbox"] { @apply text-ctp-green; }
 form input[type="text"] { @apply bg-ctp-base text-ctp-text border-ctp-overlay0; }
 form button[type="submit"] { @apply bg-ctp-lavender text-ctp-crust py-2 px-4 font-bold disabled:opacity-70 disabled:cursor-not-allowed; }
 
