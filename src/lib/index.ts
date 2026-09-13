@@ -18,6 +18,9 @@ export type DomainFile = {
   proxied?: boolean;
 };
 
+export const ARRAY_RECORDS = ['A', 'AAAA', 'MX', 'TXT'] as const;
+export type ArrayRecordType = typeof ARRAY_RECORDS[number];
+
 export async function loadDoc(doc: string, announcementsOnly = false) {
   if (!doc) return 'No document specified.';
   const markdown = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/${doc}`)
