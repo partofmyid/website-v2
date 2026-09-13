@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { page } from "$app/stores";
   import { ARRAY_RECORDS, getSubdomain, type DomainFile, type ArrayRecordType } from "$lib";
+  import { page } from "$app/stores";
   import { onMount } from "svelte";
 
   function constructURL(subdomain: string, apex: string, records: any = {}) {
@@ -23,7 +23,6 @@
   let disabled = $state(false);
   let showCNAME = $state(false);
   let previewUsername = $state('');
-  let hasOtherRecords = $derived(ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0));
 
   onMount(async () => {
     info = await getSubdomain(subdomain, apex);
@@ -67,10 +66,10 @@
       <b class="text-xl">Add Record:</b>
       {#each ARRAY_RECORDS as type}
         <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-          onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={disabled || showCNAME}>{type}</button>
+          onclick={(e) => { e.preventDefault(); addRecord(type) }} {disabled}>{type}</button>
       {/each}
       <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-        onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={disabled || showCNAME || hasOtherRecords}>CNAME</button>
+        onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={disabled || showCNAME}>CNAME</button>
     </div>
     {#if showCNAME}
       <div class="flex items-center gap-2">
