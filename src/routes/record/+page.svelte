@@ -6,7 +6,7 @@
   function constructURL(subdomain: string, apex: string, records: any = {}) {
     return `https://github.com/partofmyid/register/new/main/domains/${apex}?${new URLSearchParams({
       filename: subdomain + '.json',
-      value: JSON.stringify(records),
+      value: JSON.stringify(records, null, 2),
     })}`;
   }
 
@@ -20,10 +20,15 @@
   let redirectURL = $derived(constructURL(subdomain, apex));
   let info: Awaited<ReturnType<typeof getSubdomain>> | null = $state(null);
   let draft: DomainFile = $state({ owner: { username: '' }, records: {} });
+  let atLeastOneRecord = $derived(!ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0 || draft.records.CNAME));
   let hasOtherRecords = $derived(ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0));
   let disabled = $state(false);
   let showCNAME = $state(false);
   let previewUsername = $state('');
+
+  function openRedirect() {
+    window.open(constructURL(subdomain, apex, draft), '_blank');
+  }
 
   onMount(async () => {
     info = await getSubdomain(subdomain, apex);
@@ -56,7 +61,7 @@
   {:else}
     <p class="animate-pulse text-ctp-subtext0">Loading...</p>
   {/if}
-  <form class="flex flex-col gap-4 my-4" onsubmit={(e) => e.preventDefault()}>
+  <form class="flex flex-col gap-4 my-4" onsubmit={(e) => { e.preventDefault(); openRedirect(); }}>
     <div>
       {#if previewUsername}
         <img src="https://github.com/{previewUsername}.png?size=32" alt=""
@@ -66,9 +71,6 @@
       <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="w-[65%] inline" {disabled}>
     </div>
     <hr>
-    {#if !disabled}
-      <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
-    {/if}
     <label>
       <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || (draft.proxied && showCNAME && hasOtherRecords)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
@@ -107,5 +109,12 @@
         </div>
       {/each}
     {/each}
+    {#if !disabled}
+      <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
+      <div>
+        <button type="submit" disabled={atLeastOneRecord}>Register Subdomain</button>
+        <button class="bg-ctp-surface0 py-2 px-4 italic"><a href={constructURL(subdomain, apex)}>Manual Registration</a></button>
+      </div>
+    {/if}
   </form>
 </div>
