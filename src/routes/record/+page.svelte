@@ -68,21 +68,25 @@
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
       {draft.proxied ? "Proxied" : "DNS only"}
     </label>
-    <div class="flex gap-2 items-center">
-      <b class="text-xl">Add Record:</b>
-      {#each ARRAY_RECORDS as type}
+    {#if !disabled}
+      <div class="flex gap-2 items-center">
+        <b class="text-xl">Add Record:</b>
+        {#each ARRAY_RECORDS as type}
+          <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
+            onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={showCNAME && !draft.proxied}>{type}</button>
+        {/each}
         <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-          onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={disabled || (showCNAME && !draft.proxied)}>{type}</button>
-      {/each}
-      <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-        onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={disabled || showCNAME || (hasOtherRecords && !draft.proxied)}>CNAME</button>
-    </div>
+          onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={showCNAME || (hasOtherRecords && !draft.proxied)}>CNAME</button>
+      </div>
+    {/if}
     {#if showCNAME}
       <div class="flex items-center gap-2">
         <label class="text-xl font-semibold" for="CNAME">CNAME</label>
         <input required type="text" {disabled} bind:value={draft.records.CNAME} placeholder="CNAME Record" class="inline flex-1">
-        <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
-          onclick={(e) => { e.preventDefault(); draft.records.CNAME = ""; showCNAME = false; }} {disabled}>Remove</button>
+        {#if !disabled}
+          <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+            onclick={(e) => { e.preventDefault(); draft.records.CNAME = ""; showCNAME = false; }}>Remove</button>
+        {/if}
       </div>
     {/if}
     {#each ARRAY_RECORDS as type}
@@ -90,8 +94,10 @@
       <div class="flex items-center gap-2">
         <label class="text-xl font-semibold" for="CNAME">{type}#{i+1}</label>
           <input required type="text" {disabled} bind:value={draft.records[type]![i]} placeholder="{type} Record #{i+1}" class="inline flex-1">
-          <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
-            onclick={(e) => { e.preventDefault(); draft.records[type]?.splice(i,1) }} {disabled}>Remove</button>
+          {#if !disabled}
+            <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+              onclick={(e) => { e.preventDefault(); draft.records[type]?.splice(i,1) }}>Remove</button>
+          {/if}
         </div>
       {/each}
     {/each}
