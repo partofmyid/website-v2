@@ -45,7 +45,10 @@
           class="h-6 aspect-square rounded-full outline-ctp-overlay0 outline inline">
       </a>
       {#if disabled}
-        <span class="text-ctp-red">taken, read only.</span>
+        <br>
+        <span class="text-ctp-red">(taken, read only)</span>
+        <a href="https://{subdomain}.{apex}" class="underline text-ctp-sapphire">visit</a>
+        <a href="https://github.com/partofmyid/register/blob/main/domains/{apex}/{subdomain}.json" class="underline text-ctp-sapphire">file</a>
       {/if}
     </p>
   {:else if info?.available}
