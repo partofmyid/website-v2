@@ -66,6 +66,9 @@
       <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="w-[65%] inline" {disabled}>
     </div>
     <hr>
+    {#if !disabled}
+      <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
+    {/if}
     <label>
       <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || (draft.proxied && showCNAME && hasOtherRecords)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
