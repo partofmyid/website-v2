@@ -62,13 +62,13 @@
     <p class="animate-pulse text-ctp-subtext0">Loading...</p>
   {/if}
   <form class="flex flex-col gap-4 my-4" onsubmit={(e) => { e.preventDefault(); openRedirect(); }}>
-    <div>
+    <div class="flex gap-2">
       {#if previewUsername}
         <img src="https://github.com/{previewUsername}.png?size=32" alt=""
           class="h-10 aspect-square outline-ctp-overlay0 outline inline">
       {/if}
-      <input type="text" bind:value={draft.owner.username} onblur={() => previewUsername = draft.owner.username} placeholder="GitHub Username" class="w-[25%] inline" required {disabled}>
-      <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="w-[65%] inline" {disabled}>
+      <input type="text" bind:value={draft.owner.username} onblur={() => previewUsername = draft.owner.username} placeholder="GitHub Username" class="inline" required {disabled}>
+      <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="flex-1 inline" {disabled}>
     </div>
     <hr>
     <label>
