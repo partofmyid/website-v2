@@ -80,7 +80,7 @@
     {#if showCNAME}
       <div class="flex items-center gap-2">
         <label class="text-xl font-semibold" for="CNAME">CNAME</label>
-        <input type="text" {disabled} bind:value={draft.records.CNAME} placeholder="CNAME Record" class="inline flex-1">
+        <input required type="text" {disabled} bind:value={draft.records.CNAME} placeholder="CNAME Record" class="inline flex-1">
         <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
           onclick={(e) => { e.preventDefault(); draft.records.CNAME = ""; showCNAME = false; }} {disabled}>Remove</button>
       </div>
@@ -89,7 +89,7 @@
       {#each draft.records[type] ?? [] as _, i}
       <div class="flex items-center gap-2">
         <label class="text-xl font-semibold" for="CNAME">{type}#{i+1}</label>
-          <input type="text" {disabled} bind:value={draft.records[type]![i]} placeholder="{type} Record #{i+1}" class="inline flex-1">
+          <input required type="text" {disabled} bind:value={draft.records[type]![i]} placeholder="{type} Record #{i+1}" class="inline flex-1">
           <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
             onclick={(e) => { e.preventDefault(); draft.records[type]?.splice(i,1) }} {disabled}>Remove</button>
         </div>
