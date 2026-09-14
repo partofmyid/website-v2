@@ -20,6 +20,7 @@
   let redirectURL = $derived(constructURL(subdomain, apex));
   let info: Awaited<ReturnType<typeof getSubdomain>> | null = $state(null);
   let draft: DomainFile = $state({ owner: { username: '' }, records: {} });
+  let hasOtherRecords = $derived(ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0));
   let disabled = $state(false);
   let showCNAME = $state(false);
   let previewUsername = $state('');
@@ -63,7 +64,7 @@
     </div>
     <hr>
     <label>
-      <input type="checkbox" bind:checked={draft.proxied} {disabled}>
+      <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || (draft.proxied && showCNAME && hasOtherRecords)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
       {draft.proxied ? "Proxied" : "DNS only"}
     </label>
@@ -71,10 +72,10 @@
       <b class="text-xl">Add Record:</b>
       {#each ARRAY_RECORDS as type}
         <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-          onclick={(e) => { e.preventDefault(); addRecord(type) }} {disabled}>{type}</button>
+          onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={disabled || (showCNAME && !draft.proxied)}>{type}</button>
       {/each}
       <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
-        onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={disabled || showCNAME}>CNAME</button>
+        onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={disabled || showCNAME || (hasOtherRecords && !draft.proxied)}>CNAME</button>
     </div>
     {#if showCNAME}
       <div class="flex items-center gap-2">
