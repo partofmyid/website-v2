@@ -62,6 +62,11 @@
       <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="w-[65%] inline" {disabled}>
     </div>
     <hr>
+    <label>
+      <input type="checkbox" bind:checked={draft.proxied} {disabled}>
+      <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
+      {draft.proxied ? "Proxied" : "DNS only"}
+    </label>
     <div class="flex gap-2 items-center">
       <b class="text-xl">Add Record:</b>
       {#each ARRAY_RECORDS as type}
@@ -89,10 +94,5 @@
         </div>
       {/each}
     {/each}
-    <label>
-      <input type="checkbox" bind:checked={draft.proxied} {disabled}>
-      <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
-      {draft.proxied ? "Proxied" : "DNS only"}
-    </label>
   </form>
 </div>
