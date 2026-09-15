@@ -27,7 +27,10 @@
   let previewUsername = $state('');
 
   function openRedirect() {
-    window.open(constructURL(subdomain, apex, draft), '_blank');
+    goto(`/success?${new URLSearchParams({
+      next: constructURL(subdomain, apex, draft),
+      full: `${subdomain}.${apex}`,
+    })}`);
   }
 
   onMount(async () => {
