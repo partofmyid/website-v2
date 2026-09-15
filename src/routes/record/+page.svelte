@@ -112,12 +112,18 @@
         </div>
       {/each}
     {/each}
+    {#if !disabled && atLeastOneRecord}
+      <div class="bg-ctp-surface0 w-full border-ctp-red border p-4 flex justify-center">
+        <span class="font-bold">Please add at least one populated record to register your subdomain.</span>
+      </div>
+    {/if}
     {#if !disabled}
       <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
       <div>
         <button type="submit" disabled={atLeastOneRecord}>Register Subdomain</button>
         <button class="bg-ctp-surface0 py-2 px-4 italic"><a href={constructURL(subdomain, apex)}>Manual Registration</a></button>
       </div>
+      <p class="text-ctp-subtext1">You will be taken to GitHub to commit the file and open a PR.</p>
     {/if}
   </form>
 </div>
