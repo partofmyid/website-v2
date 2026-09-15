@@ -70,7 +70,7 @@
       <p class="text-lg">your own personal id for your website</p>
     </div>
     <form onsubmit={(e) => { e.preventDefault(); goto(`/query/${subdomainSearch}`); }}>
-      <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id">
+      <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id" maxlength="32">
       <button type="submit">search</button>
     </form>
     <div class="flex justify-center items-center gap-6">
