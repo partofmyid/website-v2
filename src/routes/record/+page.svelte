@@ -2,6 +2,7 @@
   import { ARRAY_RECORDS, getSubdomain, type DomainFile, type ArrayRecordType } from "$lib";
   import { page } from "$app/stores";
   import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
 
   function constructURL(subdomain: string, apex: string, records: any = {}) {
     return `https://github.com/partofmyid/register/new/main/domains/${apex}?${new URLSearchParams({
