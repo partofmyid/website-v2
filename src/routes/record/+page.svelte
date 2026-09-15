@@ -74,7 +74,7 @@
       <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="flex-1 inline" {disabled}>
     </div>
     <hr>
-    <label>
+    <label class="font-mono">
       <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || (draft.proxied && showCNAME && hasOtherRecords)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
       {draft.proxied ? "Proxied" : "DNS only"}
@@ -83,10 +83,10 @@
       <div class="flex gap-2 items-center">
         <b class="text-xl">Add Record:</b>
         {#each ARRAY_RECORDS as type}
-          <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
+          <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
             onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={showCNAME && !draft.proxied}>{type}</button>
         {/each}
-        <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2"
+        <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
           onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={showCNAME || (hasOtherRecords && !draft.proxied)}>CNAME</button>
       </div>
     {/if}
