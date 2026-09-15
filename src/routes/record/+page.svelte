@@ -17,7 +17,6 @@
 
   let subdomain = $derived($page.url.searchParams.get('subdomain') ?? '');
   let apex = $derived($page.url.searchParams.get('apex') ?? '');
-  let redirectURL = $derived(constructURL(subdomain, apex));
   let info: Awaited<ReturnType<typeof getSubdomain>> | null = $state(null);
   let draft: DomainFile = $state({ owner: { username: '' }, records: {} });
   let atLeastOneRecord = $derived(!ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0 || draft.records.CNAME));
