@@ -105,8 +105,14 @@
 
 <div class="homepage-section centered">
   <p class="text-xl">
-    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice looking subdomain for your website for free.
+    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice looking subdomain for your website for free. register in 4 easy steps:
   </p>
+  <div class="flex justify-center items-center gap-4">
+    <div class="border border-ctp-overlay0 bg-ctp-base rounded-lg p-4"><h3 class="text-center text-base! leading-4">Fork the repository</h3></div>
+    <div class="border border-ctp-overlay0 bg-ctp-base rounded-lg p-4"><h3 class="text-center text-base! leading-4">Create a domain file</h3></div>
+    <div class="border border-ctp-overlay0 bg-ctp-base rounded-lg p-4"><h3 class="text-center text-base! leading-4">Fill in your records</h3></div>
+    <div class="border border-ctp-overlay0 bg-ctp-base rounded-lg p-4"><h3 class="text-center text-base! leading-4">Open a pull request</h3></div>
+  </div>
   <h2>why us?</h2>
 </div>
 
