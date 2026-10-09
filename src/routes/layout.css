@@ -14,7 +14,7 @@ body { @apply text-ctp-text bg-ctp-crust font-[Lora]; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 button { @apply cursor-pointer; }
 hr { @apply border-ctp-overlay0; }
-li { @apply ml-8; }
+:not(article) li { @apply ml-8; }
 
 form *[disabled] { @apply opacity-70 cursor-not-allowed; }
 form input[type="checkbox"] { @apply text-ctp-green; }
@@ -28,6 +28,9 @@ prose-pre:bg-ctp-base
 prose-p:text-ctp-text
 prose-a:text-ctp-text
 prose-li:text-ctp-text
+prose-td:text-ctp-text
+prose-tr:border-ctp-surface0
+prose-thead:border-ctp-surface2
 prose-li:marker:text-ctp-subtext0
 prose-strong:text-ctp-text
 prose max-w-none; }
