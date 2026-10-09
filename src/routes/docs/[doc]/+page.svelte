@@ -26,7 +26,7 @@
   <nav class="mb-4 flex flex-col ml-2">
     {#each Object.entries(docs) as [name, link]}
       <a href='/docs/{link}' class="{link === params.doc ? 'opacity-70' : 'opacity-100'} w-fit group">
-        {link}.md <b class="{link === params.doc ? 'inline' : 'hidden'} group-hover:inline"> - {name}</b>
+        {link}.md <b class="hidden group-hover:inline"> - {name}</b>
       </a>
     {/each}
   </nav>
