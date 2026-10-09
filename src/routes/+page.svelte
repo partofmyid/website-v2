@@ -166,7 +166,9 @@
 <div class="homepage-section centered">
   <div>
     <h2>Make your site stand out!</h2>
-    <p>Start by searching for your desired subdomain in the search bar above.</p>
+    <p>View our documentation to quickstart your first subdomain.</p>
   </div>
-  <a href="/" class="text-center underline text-lg">Take me there!</a>
+  <button class="primary">
+    <a href="/docs/quickstart" class="text-lg">Take me there!</a>
+  </button>
 </div>
