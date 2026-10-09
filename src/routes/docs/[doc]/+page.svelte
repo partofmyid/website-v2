@@ -7,6 +7,7 @@
     'Quickstart Registration Guide': 'quickstart',
     'Website & Usage Requirements': 'requirements',
     'Schema & Structure Reference': 'references',
+    'List of Supported Services': 'services',
     // 'Frequently Asked Questions': 'questions',
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
