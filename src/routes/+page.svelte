@@ -67,7 +67,7 @@
       <h1 class="text-4xl font-bold w-105 text-nowrap shrink-0 lg:5xl">
         <span class="text-ctp-mauve">{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</span>{#if subdomainSearch.endsWith('.is-my.id')}.is-my.<span class="text-ctp-red">id</span>{:else}.part-of.<span class="text-ctp-red">my.id</span>{/if}
       </h1>
-      <p class="text-lg">your own personal id for your website</p>
+      <p class="leading-5 text-ctp-subtext0">your own personal id for your website!<br>a free subdomain service</p>
     </div>
     <form onsubmit={(e) => { e.preventDefault(); goto(`/query/${subdomainSearch}`); }}>
       <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id" maxlength="32">
