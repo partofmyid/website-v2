@@ -101,7 +101,7 @@
   </div>
 </div>
 
-<p id="abt" class="text-center underline text-lg"><a href="/#abt">what is this?</a></p>
+<p id="abt" class="text-center underline text-xl"><a href="/#abt">what is this?</a></p>
 
 <div class="homepage-section centered">
   <p class="text-xl">
