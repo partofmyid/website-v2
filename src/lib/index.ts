@@ -22,11 +22,18 @@ export type DomainFile = {
 export const ARRAY_RECORDS = ['A', 'AAAA', 'MX', 'TXT'] as const;
 export type ArrayRecordType = typeof ARRAY_RECORDS[number];
 
-export async function loadDoc(doc: string, announcementsOnly = false) {
+export async function loadDoc(doc: string, { announcementsOnly = true, fetchFn }: {
+  announcementsOnly?: boolean
+  fetchFn?: typeof fetch
+} = {}) {
   if (!doc) return 'No document specified.';
-  const markdown = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/${doc}`)
-    .then(res => res.text());
-  return await marked.parse(announcementsOnly ? markdown.split('<!-- ANNOUNCEMENTS_START -->')[1] : markdown);
+  const response = await (
+    fetchFn ?? fetch
+  )(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/${doc}`);
+  if (!response.ok) return `Document not found: ${doc}`;
+  const markdown = await response.text();
+  const content = announcementsOnly ? (markdown.split('<!-- ANNOUNCEMENTS_START -->')[1] ?? markdown) : markdown;
+  return await marked.parse(content);
 }
 
 export async function getSubdomain(subdomain: string, apex: string) {

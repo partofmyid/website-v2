@@ -1,7 +1,7 @@
 <script lang="ts">
   import { loadDoc } from '$lib';
   import type { PageProps } from "./$types";
-  let { params }: PageProps = $props();
+  let { params, data }: PageProps = $props();
 
   const docs = {
     'Quickstart Registration Guide': 'quickstart',
@@ -12,16 +12,26 @@
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
   };
-  let html = $state('Loading...');
+  let html = $state(data.html);
+  let loading = $state(false);
+  let firstRun = true;
 
   $effect(() => {
-    html = 'Loading...'
-    loadDoc(`docs/${params.doc}.md`).then(doc => html = doc)
+    params.doc;
+    if (firstRun) {
+      firstRun = false;
+      return;
+    }
+    loading = true;
+    loadDoc(`docs/${params.doc}.md`).then(doc => {
+      html = doc;
+      loading = false;
+    });
   });
 </script>
 
 
-<div class="page-container">
+<div class="page-container {loading ? 'opacity-50' : ''}">
   <span class="font-bold">Docs Navigation:</span>
   <nav class="mb-4 flex flex-col ml-2">
     {#each Object.entries(docs) as [name, link]}
@@ -30,6 +40,5 @@
       </a>
     {/each}
   </nav>
-  <article class="
-">{@html html}</article>
+  <article>{@html html}</article>
 </div>

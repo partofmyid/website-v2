@@ -36,7 +36,9 @@
     checkAvailabilities().then(() => loading = false);
   });
   onMount(async () => {
-    announcements = await loadDoc('README.md', true);
+    announcements = await loadDoc('README.md', { 
+      announcementsOnly: true,
+    });
     
     const availableApexes: string[] = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/scripts/apexdomains.json`).then(res => res.json());
     apexDomains = availableApexes.map((apex: string) => ({ apex, owner: '' }));
