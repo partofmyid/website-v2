@@ -14,6 +14,7 @@ export type DomainFile = {
     CNAME?: string;
     MX?: string[];
     TXT?: string[];
+    REDIRECT?: string;
   };
   proxied?: boolean;
 };

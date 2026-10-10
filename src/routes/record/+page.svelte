@@ -16,15 +16,18 @@
     draft.records[type]!.push('');
   }
 
+  let disabled = $state(false);
+  let showCNAME = $state(false);
+  let showREDIRECT = $state(false);
+  let previewUsername = $state('');
   let subdomain = $derived($page.url.searchParams.get('subdomain') ?? '');
   let apex = $derived($page.url.searchParams.get('apex') ?? '');
   let info: Awaited<ReturnType<typeof getSubdomain>> | null = $state(null);
   let draft: DomainFile = $state({ owner: { username: '' }, records: {} });
-  let atLeastOneRecord = $derived(!ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0 || draft.records.CNAME));
-  let hasOtherRecords = $derived(ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0));
-  let disabled = $state(false);
-  let showCNAME = $state(false);
-  let previewUsername = $state('');
+  let atLeastOneRecord = $derived(!ARRAY_RECORDS.some((type) => (draft.records[type]?.length ?? 0) > 0) && !showCNAME && !showREDIRECT);
+  let hasAorAAAA = $derived((draft.records.A?.length ?? 0) > 0 || (draft.records.AAAA?.length ?? 0) > 0);
+  let hasAorAAAAorCNAME = $derived(hasAorAAAA || showCNAME);
+  let hasMXorTXT = $derived((draft.records.MX?.length ?? 0) > 0 || (draft.records.TXT?.length ?? 0) > 0);
 
   function openRedirect() {
     goto(`/success?${new URLSearchParams({
@@ -75,7 +78,7 @@
     </div>
     <hr>
     <label class="font-mono">
-      <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || (draft.proxied && showCNAME && hasOtherRecords)}>
+      <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || showREDIRECT || (draft.proxied && showCNAME && hasMXorTXT)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
       {draft.proxied ? "Proxied" : "DNS only"}
     </label>
@@ -84,10 +87,22 @@
         <b class="text-xl">Add Record:</b>
         {#each ARRAY_RECORDS as type}
           <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
-            onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={showCNAME && !draft.proxied}>{type}</button>
+            onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={(type === 'A' || type === 'AAAA') ? (showCNAME || showREDIRECT) : (showCNAME && !draft.proxied)}>{type}</button>
         {/each}
         <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
-          onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={showCNAME || (hasOtherRecords && !draft.proxied)}>CNAME</button>
+          onclick={(e) => { e.preventDefault(); showCNAME = true; }} disabled={showCNAME || showREDIRECT || hasAorAAAA || (hasMXorTXT && !draft.proxied)}>CNAME</button>
+        <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
+          onclick={(e) => { e.preventDefault(); showREDIRECT = true; }} disabled={!draft.proxied || hasAorAAAAorCNAME || showREDIRECT}>REDIRECT</button>
+      </div>
+    {/if}
+    {#if showREDIRECT}
+      <div class="flex items-center gap-2">
+        <label class="text-xl font-semibold" for="REDIRECT">REDIRECT</label>
+        <input required type="text" {disabled} bind:value={draft.records.REDIRECT} placeholder="REDIRECT Record" class="inline flex-1">
+        {#if !disabled}
+          <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+            onclick={(e) => { e.preventDefault(); draft.records.REDIRECT = ""; showREDIRECT = false; }}>Remove</button>
+        {/if}
       </div>
     {/if}
     {#if showCNAME}
