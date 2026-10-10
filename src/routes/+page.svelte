@@ -108,12 +108,12 @@
     part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice looking subdomain for your website for free. register in 4 easy steps:
   </p>
   <div class="inline-flex flex-wrap md:flex-nowrap justify-center items-center gap-4">
-    <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-blue"><h3 class="text-center text-4xl!">1st</h3><span>fork the repository</span></div>
-    <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-yellow"><h3 class="text-center text-4xl!">then</h3><span>create the domain file</span></div>
-    <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-mauve"><h3 class="text-center text-4xl!">now</h3><span>fill in your dns records</span></div>
-    <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-green"><h3 class="text-center text-4xl!">lastly</h3><span>open a pull request</span></div>
+    <div class="card gap-2 flex-col text-ctp-blue"><h3 class="text-center text-4xl!">1st</h3><span>fork the repository</span></div>
+    <div class="card gap-2 flex-col text-ctp-yellow"><h3 class="text-center text-4xl!">then</h3><span>create the domain file</span></div>
+    <div class="card gap-2 flex-col text-ctp-mauve"><h3 class="text-center text-4xl!">now</h3><span>fill in your dns records</span></div>
+    <div class="card gap-2 flex-col text-ctp-green"><h3 class="text-center text-4xl!">lastly</h3><span>open a pull request</span></div>
   </div>
-  <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-4 md:w-full">
+  <div class="card gap-4 md:w-full">
     <div class="animate-pulse bg-ctp-red h-10 aspect-square rounded-full"></div>
     <div class="text-left">
       <h3 class="font-normal!">...and your subdomain is live!</h3>
