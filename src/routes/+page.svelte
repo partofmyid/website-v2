@@ -113,7 +113,14 @@
     <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-mauve"><h3 class="text-center text-4xl!">now</h3><span>fill in your dns records</span></div>
     <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-2 flex-col text-ctp-green"><h3 class="text-center text-4xl!">lastly</h3><span>open a pull request</span></div>
   </div>
-  <h2>why us?</h2>
+  <div class="border border-ctp-overlay0 bg-ctp-mantle rounded-lg p-4 flex justify-center items-center gap-4 md:w-full">
+    <div class="animate-pulse bg-ctp-red h-10 aspect-square rounded-full"></div>
+    <div class="text-left">
+      <h3 class="font-normal!">...and your subdomain is live!</h3>
+      <span class="text-sm italic text-ctp-subtext0">after your PR is merged of course</span>
+    </div>
+  </div>
+  <h2>why part-of.my.id?</h2>
 </div>
 
 <div class="homepage-section dynamic">
