@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { loadDoc } from '$lib';
   import type { PageProps } from "./$types";
   let { params, data }: PageProps = $props();
 
@@ -12,26 +11,10 @@
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
   };
-  let html = $state(data.html);
-  let loading = $state(false);
-  let firstRun = true;
-
-  $effect(() => {
-    params.doc;
-    if (firstRun) {
-      firstRun = false;
-      return;
-    }
-    loading = true;
-    loadDoc(`docs/${params.doc}.md`).then(doc => {
-      html = doc;
-      loading = false;
-    });
-  });
 </script>
 
 
-<div class="page-container {loading ? 'opacity-50' : ''}">
+<div class="page-container">
   <span class="font-bold">Docs Navigation:</span>
   <nav class="mb-4 flex flex-col ml-2">
     {#each Object.entries(docs) as [name, link]}
@@ -40,5 +23,5 @@
       </a>
     {/each}
   </nav>
-  <article>{@html html}</article>
+  <article>{@html data.html}</article>
 </div>
