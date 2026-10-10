@@ -32,6 +32,7 @@ prose-td:text-ctp-text
 prose-tr:border-ctp-surface0
 prose-thead:border-ctp-surface2
 prose-li:marker:text-ctp-subtext0
+prose-ol:pl-0 prose-ul:pl-0
 prose-strong:text-ctp-text
 prose max-w-none; }
 
