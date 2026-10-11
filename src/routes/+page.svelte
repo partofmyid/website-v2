@@ -196,7 +196,5 @@
     <h2>Make your site stand out!</h2>
     <p>View our documentation to quickstart your first subdomain.</p>
   </div>
-  <button class="primary">
-    <a href="/docs/quickstart" class="text-lg">Get Started</a>
-  </button>
+  <a href="/docs/quickstart" class="primary text-lg">Get Started</a>
 </div>
