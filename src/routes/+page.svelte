@@ -14,6 +14,7 @@
     subdomains: 0,
   });
   let subdomainSearch = $state('');
+  let fail = $state(true);
 
   function slowIncrement(targetCount: number, varName: keyof typeof counters, delay = 100) {
     for (let i = 0; i < targetCount; i++) setTimeout(() => counters[varName] = i+1, delay*i);
@@ -41,13 +42,27 @@
     ], 200), 50);
     
     const count = await fetch('https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/stats/count.txt').then(r => r.text());
-    const repoStats = await fetch('https://api.github.com/repos/partofmyid/register').then(r => r.json());
-
     slowIncrement(parseInt(count) || 0, 'subdomains', 50);
+
+    let  repoStats: any = null, orgMembers: any = null;
+    try {
+      const [ repoStatsRes, orgMembersRes ] = await Promise.all([
+        fetch('https://api.github.com/repos/partofmyid/register'),
+        fetch('https://api.github.com/orgs/partofmyid/members'),
+      ]);
+      if (!repoStatsRes.ok || !orgMembersRes.ok) { 
+        fail = true;
+        throw new Error('Failed to fetch GitHub API data');
+      }
+      repoStats = await repoStatsRes.json();
+      orgMembers = await orgMembersRes.json();
+      fail = false;
+    } catch { fail = true; }
+    if (fail) return;
+
     slowIncrement(repoStats?.stargazers_count, 'stars', 75);
     slowIncrement(repoStats?.forks, 'forks', 75);
 
-    const orgMembers = await fetch('https://api.github.com/orgs/partofmyid/members').then(r => r.json());
     members = orgMembers?.map((e: {
       login: string;
       avatar_url: string;
@@ -74,18 +89,22 @@
       <button type="submit">search</button>
     </form>
     <div class="flex justify-center items-center gap-6">
-      <div class="flex flex-col justify-center items-center text-ctp-yellow">
-        <strong class="text-4xl">{counters.stars}</strong>
-        <span>stars</span>
+      {#if !fail}
+        <div class="flex flex-col justify-center items-center text-ctp-yellow">
+          <strong class="text-4xl">{counters.stars}</strong>
+          <span>stars</span>
+        </div>
+      {/if}
+      <div class="flex flex-col justify-center items-center text-ctp-green {fail ? 'lg:items-start' : ''}">
+        <strong class={fail ? 'text-xl' : 'text-4xl'}>{counters.subdomains}{fail ? ' subdomains' : ''}</strong>
+        <span>{fail ? 'registered and counting...' : 'subdomains'}</span>
       </div>
-      <div class="flex flex-col justify-center items-center text-ctp-green">
-        <strong class="text-4xl">{counters.subdomains}</strong>
-        <span>subdomains</span>
-      </div>
-      <div class="flex flex-col justify-center items-center text-ctp-blue">
-        <strong class="text-4xl">{counters.forks}</strong>
-        <span>forks</span>
-      </div>
+      {#if !fail}
+        <div class="flex flex-col justify-center items-center text-ctp-blue">
+          <strong class="text-4xl">{counters.forks}</strong>
+          <span>forks</span>
+        </div>
+      {/if}
     </div>
   </div>
   <div class="-z-10 hidden lg:flex justify-center items-center">
@@ -157,13 +176,15 @@
 </div>
 
 <div class="homepage-section dynamic reverse">
-  <div class="flex sm:grid gap-1 grid-cols-2">
-  {#each members as member}
-    <a href={member.link}>
-      <img src={member.picture} alt={member.username} class="w-14 sm:w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
-    </a>
-  {/each}
-  </div>
+  {#if !fail}
+    <div class="flex sm:grid gap-1 grid-cols-2">
+      {#each members as member}
+        <a href={member.link}>
+          <img src={member.picture} alt={member.username} class="w-14 sm:w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
+        </a>
+      {/each}
+    </div>
+  {/if}
   <div>
     <h3>Community-driven project</h3>
     <p>By the maintainers of is-a.dev. Rest assured you will have a smooth registration process and quick support answers.</p>
