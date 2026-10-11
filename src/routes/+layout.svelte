@@ -1,6 +1,8 @@
 <script lang="ts">
-	import './layout.css';
+  import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.svg';
+	import banner from '$lib/assets/banner.webp';
+	import './layout.css';
 
 	import '@fsegurai/marked-extended-alert/styles/alert.css';
 	import '@fsegurai/marked-extended-alert/styles/alert-theme.css';
@@ -11,6 +13,22 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<script defer src="https://a.satr14.my.id/script.js" data-website-id="828b48bc-6242-44a9-9d3e-9ab7603411c2"></script>
+	<title>part-of.my.id{page.url.pathname}</title>
+	<meta name="description" content="your own personal id for your website - a free subdomain service">
+	<meta name="theme-color" content="#b4befe">
+
+	<!-- og tags: -->
+	<meta property="og:title" content="part-of.my.id" />
+  <meta property="og:description" content="your own personal id for your website - a free subdomain service" />
+  <meta property="og:image" content={banner} />
+  <meta property="og:url" content="https://part-of.my.id" />
+  <meta property="og:type" content="website" />
+
+  <!-- twitter tags: -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="part-of.my.id" />
+  <meta name="twitter:description" content="your own personal id for your website - a free subdomain service" />
+  <meta name="twitter:image" content={banner} />
 </svelte:head>
 
 <div class="min-h-full flex flex-col">
