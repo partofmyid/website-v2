@@ -180,7 +180,7 @@
     <div class="flex sm:grid gap-1 grid-cols-2">
       {#each members as member}
         <a href={member.link}>
-          <img src={member.picture} alt={member.username} class="w-14 sm:w-28 aspect-square border-ctp-surface2 border-2 rounded-full">
+          <img src="{member.picture}?v=2&amp;s=96" alt={member.username} class="w-14 sm:w-24 aspect-square border-ctp-surface2 border-2 rounded-full">
         </a>
       {/each}
     </div>
