@@ -120,7 +120,7 @@
   </div>
 </div>
 
-<p id="abt" class="text-center underline text-xl"><a href="/#abt">what is this?</a></p>
+<h2 id="abt" class="text-center underline text-xl"><a href="/#abt">what is this?</a></h2>
 
 <div class="homepage-section centered">
   <p class="text-xl">
