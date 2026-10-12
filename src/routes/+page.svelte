@@ -88,6 +88,9 @@
       <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id" maxlength="32">
       <button type="submit">search</button>
     </form>
+    <noscript>
+      <p class="text-sm italic text-ctp-subtext0">Note: Javascript is disabled, Web UI will not work.<br>Register manually from the documentation.</p>
+    </noscript>
     <div class="flex justify-center items-center gap-6">
       {#if !fail}
         <div class="flex flex-col justify-center items-center text-ctp-yellow">
@@ -95,10 +98,12 @@
           <span>stars</span>
         </div>
       {/if}
-      <div class="flex flex-col justify-center items-center text-ctp-green {fail ? 'lg:items-start' : ''}">
-        <strong class={fail ? 'text-xl' : 'text-4xl'}>{counters.subdomains}{fail ? ' subdomains' : ''}</strong>
-        <span>{fail ? 'registered and counting...' : 'subdomains'}</span>
-      </div>
+      {#if counters.subdomains}
+        <div class="flex flex-col justify-center items-center text-ctp-green {fail ? 'lg:items-start' : ''}">
+          <strong class={fail ? 'text-xl' : 'text-4xl'}>{counters.subdomains}{fail ? ' subdomains' : ''}</strong>
+          <span>{fail ? 'registered and counting...' : 'subdomains'}</span>
+        </div>
+      {/if}
       {#if !fail}
         <div class="flex flex-col justify-center items-center text-ctp-blue">
           <strong class="text-4xl">{counters.forks}</strong>
