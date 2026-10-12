@@ -53,7 +53,8 @@
   <footer class="border-t border-ctp-overlay0 py-4 bg-ctp-crust">
     <div class="max-w-3xl mx-auto px-6 flex justify-between gap-8">
       <p>Made in 🇮🇩 by <a class="underline" href="https://satr14.my.id">satr14</a></p>
-      <div class="flex gap-4">
+      <div class="flex gap-6">
+        <a href="mailto:support@part-of.my.id"><img src="https://cdn.simpleicons.org/protonmail/cdd6f4" alt="github" class="w-6 aspect-square"></a>
         <a href="https://github.com/partofmyid"><img src="https://cdn.simpleicons.org/github/cdd6f4" alt="github" class="w-6 aspect-square"></a>
       </div>
     </div>
