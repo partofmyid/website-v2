@@ -1,7 +1,11 @@
-import { marked } from "marked";
+import { marked, type Tokens } from "marked";
+import { getHeadingList, gfmHeadingId, type HeadingData } from "marked-gfm-heading-id";
 import markedExtendedAlert from '@fsegurai/marked-extended-alert';
 
-marked.use(markedExtendedAlert());
+marked.use(
+  markedExtendedAlert(),
+  gfmHeadingId(),
+);
 
 export type DomainFile = {
   description?: string;
@@ -25,15 +29,21 @@ export type ArrayRecordType = typeof ARRAY_RECORDS[number];
 export async function loadDoc(doc: string, { announcementsOnly = true, fetchFn }: {
   announcementsOnly?: boolean
   fetchFn?: typeof fetch
-} = {}) {
-  if (!doc) return 'No document specified.';
+} = {}): Promise<{
+    html: string;
+    toc?: HeadingData[];
+}> {
+  if (!doc) return { html: 'No document specified.' };
   const response = await (
     fetchFn ?? fetch
   )(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/${doc}`);
-  if (!response.ok) return `Document not found: ${doc}`;
+  if (!response.ok) return { html: `Document not found: ${doc}` };
   const markdown = await response.text();
   const content = announcementsOnly ? (markdown.split('<!-- ANNOUNCEMENTS_START -->')[1] ?? markdown) : markdown;
-  return await marked.parse(content);
+  return {
+    html: await marked.parse(content),
+    toc: getHeadingList(),
+  }
 }
 
 export async function getSubdomain(subdomain: string, apex: string) {
