@@ -125,11 +125,11 @@
   </div>
 </div>
 
-<h2 id="abt" class="text-center underline text-xl"><a href="/#abt">what is this?</a></h2>
+<h2 id="abt" class="text-center underline text-xl text-ctp-lavender"><a href="/#abt">what is this?</a></h2>
 
 <div class="homepage-section centered">
   <p class="text-xl">
-    part-of.my.id is a <b>free subdomain service</b> that allows you to have a nice looking subdomain for your website for free. register in 4 easy steps:
+    part-of.my.id is a <b class="text-ctp-lavender">free subdomain service</b> that allows you to have a nice looking subdomain for your website for free. register in 4 easy steps:
   </p>
   <div class="inline-flex flex-wrap md:flex-nowrap justify-center items-center gap-4">
     <div class="card flex-col text-ctp-blue"><h3 class="text-center text-4xl!">1st</h3><span>fork the repository</span></div>
@@ -144,12 +144,12 @@
       <span class="text-sm italic text-ctp-subtext0">after your PR is merged of course</span>
     </div>
   </div>
-  <h2>why part-of.my.id?</h2>
+  <h2 class="text-ctp-lavender">"why part-of.my.id?"</h2>
 </div>
 
 <div class="homepage-section dynamic">
   <div>
-    <h3>Sleek and memorable web address</h3>
+    <h3 class="text-ctp-lavender">Sleek and memorable web address</h3>
     <p>With part-of.my.id, you can have a nice subdomain for your website that's is easily memorable.</p>
   </div>
   <div class="flex flex-col items-end text-nowrap text-2xl">
@@ -165,14 +165,14 @@
     <img src="https://cdn.simpleicons.org/github/89dceb" alt="Github Logo" class="w-20 sm:w-60 aspect-square">
   </div>
   <div>
-    <h3>Free and open-source</h3>
+    <h3 class="text-ctp-lavender">Free and open-source</h3>
     <p>part-of.my.id is a free and open-source project hosted on GitHub. All you need to do to get a subdomain is to open a pull request on our register repo with your DNS records.</p>
   </div>
 </div>
 
 <div class="homepage-section dynamic reverse">
   <div>
-    <h3>Powered by Cloudflare</h3>
+    <h3 class="text-ctp-lavender">Powered by Cloudflare</h3>
     <p>With Cloudflare, your subdomain can opt into proxy features like CNAME flattening, DDoS protection, caching, etc. </p>
   </div>
   <div>
@@ -191,14 +191,14 @@
     </div>
   {/if}
   <div>
-    <h3>Community-driven project</h3>
+    <h3 class="text-ctp-lavender">Community-driven project</h3>
     <p>By the maintainers of is-a.dev. Rest assured you will have a smooth registration process and quick support answers.</p>
   </div>
 </div>
 
 <div class="homepage-section centered">
   <div>
-    <h2>Make your site stand out!</h2>
+    <h2 class="text-ctp-lavender">Make your site stand out!</h2>
     <p>View our documentation to quickstart your first subdomain.</p>
   </div>
   <a href="/docs/quickstart" class="primary text-lg">Get Started</a>
