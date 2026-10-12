@@ -75,7 +75,7 @@
   });
 </script>
 
-<div class="h-[95vh] flex justify-center items-center gap-36">
+<div class="h-[93vh] flex justify-center items-center gap-36">
   <div class="flex flex-col gap-6 items-center lg:items-start">
     <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
       <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
