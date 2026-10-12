@@ -1,3 +1,5 @@
+<!-- TODO: prefill for popular services -->
+
 <script lang="ts">
   import { ARRAY_RECORDS, getSubdomain, type DomainFile, type ArrayRecordType } from "$lib";
   import { page } from "$app/stores";
@@ -68,7 +70,7 @@
     <p class="animate-pulse text-ctp-subtext0">Loading...</p>
   {/if}
   <form class="flex flex-col gap-4 my-4" onsubmit={(e) => { e.preventDefault(); openRedirect(); }}>
-    <div class="flex gap-2">
+    <div class="flex flex-wrap gap-2">
       {#if previewUsername}
         <img src="https://github.com/{previewUsername}.png?size=32" alt=""
           class="h-10 aspect-square outline-ctp-overlay0 outline inline">
@@ -83,7 +85,7 @@
       {draft.proxied ? "Proxied" : "DNS only"}
     </label>
     {#if !disabled}
-      <div class="flex gap-2 items-center">
+      <div class="flex flex-wrap gap-2 items-center">
         <b class="text-xl">Add Record:</b>
         {#each ARRAY_RECORDS as type}
           <button class="bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
