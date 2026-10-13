@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.webp';
 	import banner from '$lib/assets/banner.webp';
 	import './layout.css';
 
