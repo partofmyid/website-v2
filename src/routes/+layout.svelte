@@ -37,7 +37,7 @@
     <nav class="flex gap-4">
       <a href="https://github.com/partofmyid/register">repo</a>
       <a href="/docs/quickstart">docs</a>
-      <a href="/query/your-name">query</a>
+      <a href="/query">query</a>
     </nav>
   </header>
 

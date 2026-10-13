@@ -84,8 +84,8 @@
       </h1>
       <p class="leading-5 text-ctp-subtext0">your own personal id for your website!<br>a free subdomain service</p>
     </div>
-    <form onsubmit={(e) => { e.preventDefault(); goto(`/query/${subdomainSearch}`); }}>
-      <input type="text" bind:value={subdomainSearch} placeholder="steve.is-my.id" maxlength="32">
+    <form method="POST" action="/query">
+      <input type="text" name="subdomain" bind:value={subdomainSearch} placeholder="steve.is-my.id" maxlength="32" required>
       <button type="submit">search</button>
     </form>
     <noscript>
