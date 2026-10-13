@@ -5,7 +5,7 @@
   let toc = $state(true);
   const docs = {
     'Quickstart Registration Guide': 'quickstart',
-    'Website & Usage Requirements': 'requirements',
+    'Terms of Service': 'terms',
     'Schema & Structure Reference': 'references',
     'List of Supported Services': 'services',
     'Frequently Asked Questions': 'questions',
