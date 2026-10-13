@@ -2,7 +2,6 @@
   import type { PageProps } from "./$types";
 
   let { params, data }: PageProps = $props();
-  let toc = $state(true);
   const docs = {
     'Quickstart Registration Guide': 'quickstart',
     'Terms of Service': 'terms',
