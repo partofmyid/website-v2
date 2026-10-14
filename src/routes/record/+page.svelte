@@ -44,6 +44,7 @@
     previewUsername = draft.owner.username;
     disabled = !info?.available;
     showCNAME = !!draft.records.CNAME;
+    showREDIRECT = !!draft.records.REDIRECT;
   });
 </script>
 
