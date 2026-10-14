@@ -72,8 +72,10 @@
   <form class="flex flex-col gap-4 my-4" onsubmit={(e) => { e.preventDefault(); openRedirect(); }}>
     <div class="flex flex-wrap gap-2">
       {#if previewUsername}
-        <img src="https://github.com/{previewUsername}.png?size=32" alt=""
-          class="h-10 aspect-square outline-ctp-overlay0 outline inline">
+        <a href="https://github.com/{previewUsername}" target="_blank">
+          <img src="https://github.com/{previewUsername}.png?size=32" alt=""
+            class="h-10 aspect-square outline-ctp-overlay0 outline inline">
+        </a>
       {/if}
       <input type="text" bind:value={draft.owner.username} onblur={() => previewUsername = draft.owner.username} placeholder="GitHub Username" class="inline" required {disabled}>
       <input type="text" bind:value={draft.description} placeholder="(Optional) Subdomain Description" class="flex-1 inline" {disabled}>
