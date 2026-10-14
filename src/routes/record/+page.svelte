@@ -97,38 +97,49 @@
           onclick={(e) => { e.preventDefault(); showREDIRECT = true; }} disabled={!draft.proxied || hasAorAAAAorCNAME || showREDIRECT}>REDIRECT</button>
       </div>
     {/if}
-    {#if showREDIRECT}
-      <div class="flex items-center gap-2">
-        <label class="text-xl font-semibold" for="REDIRECT">REDIRECT</label>
-        <input required type="text" {disabled} bind:value={draft.records.REDIRECT} placeholder="REDIRECT Record" class="inline flex-1">
-        {#if !disabled}
-          <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
-            onclick={(e) => { e.preventDefault(); draft.records.REDIRECT = ""; showREDIRECT = false; }}>Remove</button>
-        {/if}
-      </div>
-    {/if}
-    {#if showCNAME}
-      <div class="flex items-center gap-2">
-        <label class="text-xl font-semibold" for="CNAME">CNAME</label>
-        <input required type="text" {disabled} bind:value={draft.records.CNAME} placeholder="CNAME Record" class="inline flex-1">
-        {#if !disabled}
-          <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
-            onclick={(e) => { e.preventDefault(); draft.records.CNAME = ""; showCNAME = false; }}>Remove</button>
-        {/if}
-      </div>
-    {/if}
-    {#each ARRAY_RECORDS as type}
-      {#each draft.records[type] ?? [] as _, i}
-      <div class="flex items-center gap-2">
-        <label class="text-xl font-semibold" for="CNAME">{type}#{i+1}</label>
-          <input required type="text" {disabled} bind:value={draft.records[type]![i]} placeholder="{type} Record #{i+1}" class="inline flex-1">
-          {#if !disabled}
-            <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
-              onclick={(e) => { e.preventDefault(); draft.records[type]?.splice(i,1) }}>Remove</button>
-          {/if}
-        </div>
+    <table>
+      <thead><tr><th>Type</th><th>Value</th></tr></thead>
+      <tbody>
+      {#if showREDIRECT}
+        <tr>
+          <td class="text-xl font-semibold text-center font-mono!">REDIRECT</td>
+          <td class="flex gap-2">
+            <input required type="text" {disabled} bind:value={draft.records.REDIRECT} placeholder="REDIRECT Record" class="border-0! inline flex-1">
+            {#if !disabled}
+              <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+                onclick={(e) => { e.preventDefault(); draft.records.REDIRECT = ""; showREDIRECT = false; }}>-</button>
+            {/if}
+          </td>
+        </tr>
+      {/if}
+      {#if showCNAME}
+        <tr>
+          <td class="text-xl font-semibold text-center font-mono!">CNAME</td>
+          <td class="flex gap-2">
+            <input required type="text" {disabled} bind:value={draft.records.CNAME} placeholder="CNAME Record" class="border-0! inline flex-1">
+            {#if !disabled}
+              <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+                onclick={(e) => { e.preventDefault(); draft.records.CNAME = ""; showCNAME = false; }}>-</button>
+            {/if}
+          </td>
+        </tr>
+      {/if}
+      {#each ARRAY_RECORDS as type}
+        {#each draft.records[type] ?? [] as _, i}
+          <tr>
+            <td class="text-xl font-semibold text-center font-mono!">{type}</td>
+            <td class="flex gap-2">
+              <input required type="text" {disabled} bind:value={draft.records[type]![i]} placeholder="{type} Record #{i+1}" class="border-0! inline flex-1">
+              {#if !disabled}
+                <button class="bg-ctp-surface0 text-ctp-red hover:bg-ctp-red hover:text-ctp-crust py-1 px-2"
+                  onclick={(e) => { e.preventDefault(); draft.records[type]?.splice(i,1) }}>-</button>
+              {/if}
+            </td>
+          </tr>
+        {/each}
       {/each}
-    {/each}
+      </tbody>
+    </table>
     {#if !disabled && atLeastOneRecord}
       <div class="bg-ctp-surface0 w-full border-ctp-red border p-4 flex justify-center">
         <span class="font-bold">Please add at least one populated record to register your subdomain.</span>
