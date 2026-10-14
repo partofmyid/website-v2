@@ -86,7 +86,6 @@
     </label>
     {#if !disabled}
       <div class="flex flex-wrap gap-2 items-center">
-        <b class="text-xl">Add Record:</b>
         {#each ARRAY_RECORDS as type}
           <button class="bg-ctp-surface0 disabled:hover:bg-ctp-surface0 hover:bg-ctp-green hover:text-ctp-crust py-1 px-2 font-mono"
             onclick={(e) => { e.preventDefault(); addRecord(type) }} disabled={(type === 'A' || type === 'AAAA') ? (showCNAME || showREDIRECT) : (showCNAME && !draft.proxied)}>{type}</button>
