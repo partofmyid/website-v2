@@ -76,7 +76,7 @@
           class="h-10 aspect-square outline-ctp-overlay0 outline inline">
       {/if}
       <input type="text" bind:value={draft.owner.username} onblur={() => previewUsername = draft.owner.username} placeholder="GitHub Username" class="inline" required {disabled}>
-      <input type="text" bind:value={draft.description} placeholder="Subdomain Description" class="flex-1 inline" {disabled}>
+      <input type="text" bind:value={draft.description} placeholder="(Optional) Subdomain Description" class="flex-1 inline" {disabled}>
     </div>
     <hr class="my-4">
     <label class="font-mono">
