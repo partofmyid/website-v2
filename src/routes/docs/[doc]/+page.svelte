@@ -27,9 +27,9 @@
     <summary class="cursor-pointer font-bold">Table of Contents:</summary>
     <ol>
       {#each data.toc as heading}
-        <li class="text-ctp-lavender hover:underline cursor-pointer ml-0! {[
-          'pl-8', 'pl-12', 'pl-16', 'pl-20', 'pl-24', 'pl-28'
-        ][heading.level-1]}"><a href="#{heading.id}">{@html heading.text}</a></li>
+        <li class="text-ctp-subtext0 hover:underline cursor-pointer ml-0! {[
+          'pl-8 text-ctp-lavender!', 'pl-12 text-ctp-lavender! font-bold', 'pl-16', 'pl-20', 'pl-24', 'pl-28'
+        ][heading.level-1]}"><a href="#{heading.id}" class="border-l pl-2 rounded-bl-lg border-ctp-surface2">{@html heading.text}</a></li>
       {/each}
     </ol>
   </details>
