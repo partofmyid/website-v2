@@ -18,7 +18,7 @@
     draft.records[type]!.push('');
   }
 
-  let disabled = $state(false);
+  let disabled = $state(true);
   let showCNAME = $state(false);
   let showREDIRECT = $state(false);
   let previewUsername = $state('');
