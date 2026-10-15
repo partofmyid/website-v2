@@ -40,7 +40,7 @@
       </a>
     {/each}
   </nav>
-  <details open class="mb-4 sticky top-14 border border-ctp-overlay0 rounded-lg px-4 py-2 bg-ctp-mantle w-fit open:w-full">
+  <details class="mb-4 sticky top-14 border border-ctp-overlay0 rounded-lg px-4 py-2 bg-ctp-mantle w-fit open:w-full">
     <summary class="cursor-pointer font-bold">Table of Contents:</summary>
     <ol>
       {#each data.toc as heading}
