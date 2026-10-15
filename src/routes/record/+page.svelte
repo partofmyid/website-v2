@@ -58,12 +58,6 @@
           alt="{info.data.owner.username}'s profile picture"
           class="h-6 aspect-square rounded-full outline-ctp-overlay0 outline inline">
       </a>
-      {#if disabled}
-        <br>
-        <span class="text-ctp-red">(taken, read only)</span>
-        <a href="https://{subdomain}.{apex}" class="underline text-ctp-sapphire">visit</a>
-        <a href="https://github.com/partofmyid/register/blob/main/domains/{apex}/{subdomain}.json" class="underline text-ctp-sapphire">file</a>
-      {/if}
     </p>
   {:else if info?.available}
     <p class="text-ctp-green">Subdomain is available!</p>
@@ -147,7 +141,16 @@
         <span class="font-bold">Please add at least one populated record to register your subdomain.</span>
       </div>
     {/if}
-    {#if !disabled}
+    {#if disabled}
+      <hr class="my-4">
+      <p>Only enable edit mode if you are authorized to make changes (e.g. you are the subdomain owner or you have permission).</p>
+      <div>
+        <button onclick={() => disabled = false} class="primary">Enable Editor</button>
+        <button class="bg-ctp-surface0 py-2 px-4 italic"><a href="https://github.com/partofmyid/register/blob/main/domains/{apex}/{subdomain}.json">View Raw File</a></button>
+        <button class="bg-ctp-surface0 py-2 px-4 italic"><a href="https://{subdomain}.{apex}">Visit Site</a></button>
+      </div>
+      <span class="text-ctp-red">(taken, read only mode enabled)</span>
+    {:else}
       <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
       <hr class="my-4">
       <p class="text-ctp-subtext1">You will be taken to GitHub to commit the file and open a PR.</p>
