@@ -11,8 +11,25 @@
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
   };
-</script>
 
+  let article: HTMLElement;
+  let active = $state('');
+
+  $effect(() => {
+    data;
+    const headings = article.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    if (!headings.length) return;
+    
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        active = entry.target.id; break;
+      }
+    }, { rootMargin: '0px 0px -80% 0px', threshold: 0 });
+  
+    headings.forEach(heading => observer.observe(heading));
+    return () => observer.disconnect();
+  });
+</script>
 
 <div class="page-container">
   <span class="font-bold">Docs Navigation:</span>
@@ -27,14 +44,14 @@
     <summary class="cursor-pointer font-bold">Table of Contents:</summary>
     <ol>
       {#each data.toc as heading}
-        <li class="flex items-stretch text-ctp-subtext0 hover:underline cursor-pointer ml-4! group {[
-          'text-ctp-lavender!', 'text-ctp-lavender! font-bold'
-        ][heading.level-1] ?? ''}">
-          {#each Array(heading.level-1) as _}<div class="w-0.5 mr-4 bg-ctp-surface0 group-hover:bg-ctp-surface2"></div>{/each}
-          <a href="#{heading.id}" class="mt-1">{@html heading.text}</a>
+        <li class="flex items-stretch text-ctp-subtext0 hover:underline cursor-pointer ml-4! rounded-r-lg group {[
+          '', 'text-ctp-lavender!', 'text-ctp-lavender! font-bold'
+        ][heading.level] ?? ''} {active === heading.id ? 'bg-ctp-surface0' : ''}">
+          {#each Array(heading.level) as _}<div class="w-0.5 mr-4 bg-ctp-overlay0 group-hover:bg-ctp-overlay2"></div>{/each}
+          <a href="#{heading.id}" class="my-1">{@html heading.text}</a>
         </li>
       {/each}
     </ol>
   </details>
-  <article>{@html data.html}</article>
+  <article bind:this={article}>{@html data.html}</article>
 </div>
