@@ -9,7 +9,7 @@
 
 * { @apply scrollbar-thin scrollbar-track-ctp-base scrollbar-thumb-ctp-overlay0; }
 html, body { @apply h-full scroll-smooth; }
-body { @apply text-ctp-text bg-ctp-crust font-[Lora]; }
+body { @apply text-ctp-text bg-ctp-crust font-[Lora] selection:text-ctp-crust selection:bg-ctp-lavender; }
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 button { @apply cursor-pointer; }
 hr { @apply border-ctp-overlay0; }
