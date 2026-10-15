@@ -150,11 +150,12 @@
     {#if !disabled}
       <p class="text-ctp-subtext0 italic">Note: Please check the <a href="/docs/references" class="underline">documentation</a> for record limitations.</p>
       <hr class="my-4">
+      <p class="text-ctp-subtext1">You will be taken to GitHub to commit the file and open a PR.</p>
       <div>
         <button type="submit" disabled={atLeastOneRecord}>Register Subdomain</button>
         <button class="bg-ctp-surface0 py-2 px-4 italic"><a href={constructURL(subdomain, apex)}>Manual Registration</a></button>
       </div>
-      <p class="text-ctp-subtext1">You will be taken to GitHub to commit the file and open a PR.</p>
+      <span class="text-ctp-yellow">(before registering, make sure you <a href="https://github.com/partofmyid/register/fork" target="_blank" class="underline">forked</a> the repository)</span>
     {/if}
   </form>
 </div>
