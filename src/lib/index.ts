@@ -26,24 +26,38 @@ export type DomainFile = {
 export const ARRAY_RECORDS = ['A', 'AAAA', 'MX', 'TXT'] as const;
 export type ArrayRecordType = typeof ARRAY_RECORDS[number];
 
+interface ToC extends HeadingData {
+  numbering: string
+}
+
 export async function loadDoc(doc: string, { announcementsOnly = true, fetchFn }: {
   announcementsOnly?: boolean
   fetchFn?: typeof fetch
 } = {}): Promise<{
-    html: string;
-    toc?: HeadingData[];
+  html: string;
+  toc?: ToC[];
 }> {
   if (!doc) return { html: 'No document specified.' };
   const response = await (
     fetchFn ?? fetch
   )(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/${doc}`);
   if (!response.ok) return { html: `Document not found: ${doc}` };
+
+  const counters: number[] = [];
   const markdown = await response.text();
   const content = announcementsOnly ? (markdown.split('<!-- ANNOUNCEMENTS_START -->')[1] ?? markdown) : markdown;
-  return {
-    html: await marked.parse(content),
-    toc: getHeadingList(),
-  }
+
+  const html = await marked.parse(content);
+  const toc = getHeadingList().map(h => {
+    const idx = h.level - 1;
+
+    counters[idx] = (counters[idx] ?? 0) + 1;
+    counters.length = idx + 1;
+    
+    return { ...h, numbering: counters.join('.') }
+  });
+  
+  return { toc, html }
 }
 
 export async function getSubdomain(subdomain: string, apex: string) {
