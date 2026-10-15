@@ -83,7 +83,7 @@
     </div>
     <hr class="my-4">
     <label class="font-mono">
-      <input type="checkbox" bind:checked={draft.proxied} disabled={disabled || showREDIRECT || (draft.proxied && showCNAME && hasMXorTXT)}>
+      <input type="checkbox" class={disabled ? 'hidden' : ''} bind:checked={draft.proxied} disabled={disabled || showREDIRECT || (draft.proxied && showCNAME && hasMXorTXT)}>
       <img src="https://cdn.simpleicons.org/cloudflare/fab387" alt="Orange Clouding" class="inline h-6 {draft.proxied ? "" : "grayscale"}">
       {draft.proxied ? "Proxied" : "DNS only"}
     </label>
