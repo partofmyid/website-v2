@@ -50,10 +50,8 @@ export async function loadDoc(doc: string, { announcementsOnly = true, fetchFn }
   const html = await marked.parse(content);
   const toc = getHeadingList().map(h => {
     const idx = h.level - 1;
-
     counters[idx] = (counters[idx] ?? 0) + 1;
     counters.length = idx + 1;
-    
     return { ...h, numbering: counters.join('.') }
   });
   
