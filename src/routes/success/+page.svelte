@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { onMount } from "svelte";
+  import { dev } from "$app/environment";
 
   let fullDomain = $derived($page.url.searchParams.get('full') ?? '');
   let nextURL = $derived($page.url.searchParams.get('next') ?? '');
