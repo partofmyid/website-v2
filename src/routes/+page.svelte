@@ -7,6 +7,7 @@
     link: string;
   }[] = $state([]);
   let nameRolling = $state('your-name');
+  let nameHighlightSelect = $state(false);
   let counters = $state({
     stars: 0,
     forks: 0,
@@ -27,8 +28,13 @@
     for (let i = 0; i < entries.length; i++) {
       const name = entries[i];
       for (let char = 0; char < name.length; char++)
-        setTimeout(() => nameRolling = name.slice(0, char + 1), delay * (charIndex++) + extraDelay);
+        setTimeout(() => {
+          nameHighlightSelect = false;
+          nameRolling = name.slice(0, char + 1);
+        }, delay * (charIndex++) + extraDelay);
       extraDelay += pauseBetween;
+      if (i < entries.length - 1)
+        setTimeout(() => nameHighlightSelect = true, delay * (charIndex++) + extraDelay);
     }
   }
 
@@ -80,8 +86,8 @@
   <div class="flex flex-col gap-6 items-center lg:items-start">
     <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
       <span class="block w-fit bg-ctp-lavender font-semibold text-ctp-crust px-2 rounded-full text-sm mb-4"><strong>NEW:</strong> is-my.id subdomains are available!</span>
-      <h1 class="text-4xl font-bold w-105 text-nowrap shrink-0 lg:5xl">
-        <span class="text-ctp-mauve">{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</span>{#if subdomainSearch.endsWith('.is-my.id')}.is-my.<span class="text-ctp-red">id</span>{:else}.part-of.<span class="text-ctp-red">my.id</span>{/if}
+      <h1 class="text-4xl font-bold w-105 text-nowrap shrink-0 lg:5xl flex items-stretch">
+        <span class={nameHighlightSelect ? 'text-ctp-crust bg-ctp-lavender' : 'text-ctp-mauve'}>{subdomainSearch ? subdomainSearch.split('.')[0] : nameRolling}</span><div class="inline-block w-1 bg-ctp-lavender animate-pulse"></div>{#if subdomainSearch.endsWith('.is-my.id')}.is-my.<span class="text-ctp-red">id</span>{:else}.part-of.<span class="text-ctp-red">my.id</span>{/if}
       </h1>
       <p class="leading-5 text-ctp-subtext0">your own personal id for your website!<br>a free subdomain service</p>
     </div>
