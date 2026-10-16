@@ -52,7 +52,7 @@
   <a href="/query" class="mb-2 text-sm text-ctp-subtext0 italic hover:underline block">&larr; Back to query</a>
   <h2 class="text-xl"><b>{subdomain}</b>.<i>{apex}</i></h2>
   {#if !info?.available && info?.data}
-    <p>
+    <p class="text-ctp-subtext1 italic">
       - <a href="https://github.com/{info.data.owner.username}" class="hover:underline">
         {info.data.owner.username}
         <img src="https://github.com/{previewUsername}.png?size=32"
