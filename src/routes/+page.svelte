@@ -151,7 +151,7 @@
 <div class="homepage-section dynamic">
   <div>
     <h3 class="text-ctp-lavender">Sleek and memorable web address</h3>
-    <p>With part-of.my.id, you can have a nice subdomain for your website that's is easily memorable.</p>
+    <p>With part-of.my.id, you can have a nice subdomain for your website that's easily memorable.</p>
   </div>
   <div class="flex flex-col items-end text-nowrap text-2xl">
     <s class="text-ctp-red italic">satr14.github.io</s>
