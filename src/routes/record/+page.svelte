@@ -147,7 +147,7 @@
       <hr class="my-4">
       <p>Only enable edit mode if you are authorized to make changes (e.g. you are the subdomain owner or you have permission).</p>
       <div>
-        <button onclick={() => disabled = false} class="primary">Enable Editor</button>
+        <button onclick={() => disabled = false} class="primary bg-ctp-yellow!">Enable Editor</button>
         <button class="bg-ctp-surface0 py-2 px-4 italic"><a href="https://github.com/partofmyid/register/blob/main/domains/{apex}/{subdomain}.json">View Raw File</a></button>
         <button class="bg-ctp-surface0 py-2 px-4 italic"><a href="https://{subdomain}.{apex}">Visit Site</a></button>
       </div>
