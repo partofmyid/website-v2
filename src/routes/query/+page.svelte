@@ -23,8 +23,6 @@
 
 <div class="page-container">
   <noscript><p>This page requires javascript!</p></noscript>
-  <span class="font-bold">README.md announcements:</span>
-  <article>{@html data.announcements}</article>
   <p>Please make sure your subdomain meets our <a href="/docs/references" class="underline">filename requirements</a></p>
   <form onsubmit={(e) => { e.preventDefault(); query = input }} class="w-full flex gap-2 my-1">
     <input type="text" bind:value={input} class="flex-1" placeholder="your-subdomain-query">
@@ -59,4 +57,5 @@
       {/each}
     </ul>
   {/if}
+  <article class="my-8">{@html data.announcements}</article>
 </div>
