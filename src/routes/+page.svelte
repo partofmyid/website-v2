@@ -19,7 +19,9 @@
     for (let i = 0; i < targetCount; i++) setTimeout(() => counters[varName] = i+1, delay*i);
   }
 
-  function typeCycleEntries(entries: string[], delay = 100, pauseBetween = 500) {
+  function typeCycleEntries(entries: string[]) {
+    const delay = 200, pauseBetween = 500;
+    
     let charIndex = 0;
     let extraDelay = 0;
     for (let i = 0; i < entries.length; i++) {
@@ -38,7 +40,7 @@
       "iostpa",
       "stefdp",
       "your-name",
-    ], 200), 50);
+    ]), 50);
     
     const count = await fetch('https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/stats/count.txt').then(r => r.text());
     slowIncrement(parseInt(count) || 0, 'subdomains', 50);
