@@ -11,7 +11,7 @@
     interval = setInterval(() => {
       if (counter >= 0) return counter -= 0.1;
       if (interval) clearInterval(interval);
-      window.open(nextURL);
+      if (!dev) window.open(nextURL);
     }, 100);
   });
 </script>
