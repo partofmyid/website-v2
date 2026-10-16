@@ -29,7 +29,7 @@
   <div class="h-1 bg-ctp-surface0 my-4">
     <div class="h-full bg-ctp-lavender transition-all w-0" style="width: {counter/5*100}%"></div>
   </div>
-  <span>Next Steps:</span>
+  <h2 class="text-lg mt-4">Next Steps:</h2>
   <ol class="list-decimal">
     <li>Commit the file with your prefilled records</li>
     <li><b class="text-ctp-red">Fill in the PR requirements checklist</b> and provide a website preview</li>
