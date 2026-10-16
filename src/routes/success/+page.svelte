@@ -31,7 +31,6 @@
   </div>
   <span>Next Steps:</span>
   <ol class="list-decimal">
-    <li>Fork (and star) the repository (if you haven't already)</li>
     <li>Commit the file with your prefilled records</li>
     <li><b class="text-ctp-red">Fill in the PR requirements checklist</b> and provide a website preview</li>
     <li>Open the Pull Request</li>
