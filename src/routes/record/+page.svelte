@@ -49,6 +49,7 @@
 </script>
 
 <div class="page-container">
+  <a href="/query" class="mb-2 text-sm text-ctp-subtext0 italic hover:underline block">&larr; Back to query</a>
   <h2 class="text-xl"><b>{subdomain}</b>.<i>{apex}</i></h2>
   {#if !info?.available && info?.data}
     <p>
