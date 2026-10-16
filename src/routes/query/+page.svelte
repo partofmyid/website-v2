@@ -32,10 +32,10 @@
   {#if loading}<span class="animate-pulse">loading...</span>{/if}
   {#if query}
     <ul>
-      {#each apexDomains as {apex, owner}}
+      {#each apexDomains as {apex, owner}, i}
         <li class="{
           loading ? 'marker:text-ctp-subtext0' : (owner === '' ? 'marker:text-ctp-green' : 'marker:text-ctp-red')
-        } list-disc mt-4 pb-2 ml-8 pr-2 border-b border-ctp-overlay0 text-xl">
+        } list-disc mt-4 ml-8 pr-2 text-xl border-ctp-overlay0 {i ? 'border-t pt-4' : ''}">
           <div class="flex gap-2 justify-between items-center">
             <span><span class="text-ctp-subtext0">{query}</span>.{apex}</span>
             <div class="flex gap-2 items-center text-right">
