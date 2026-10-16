@@ -13,6 +13,7 @@ body { @apply text-ctp-text bg-ctp-crust font-[Lora] selection:text-ctp-crust se
 nav a { @apply hover:underline before:content-['/'] before:text-ctp-overlay1; }
 button { @apply cursor-pointer; }
 hr { @apply border-ctp-overlay0; }
+summary { @apply cursor-pointer; }
 :not(article) li { @apply ml-8; }
 
 form *[disabled] { @apply opacity-70 cursor-not-allowed; }
