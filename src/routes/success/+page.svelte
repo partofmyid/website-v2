@@ -1,4 +1,8 @@
 <script lang="ts">
+  import forkRequired from "$lib/assets/screenshots/fork-required.webp";
+  import commitToBranch from "$lib/assets/screenshots/commit-to-branch.webp";
+  import prPrompt from "$lib/assets/screenshots/pr-prompt.webp";
+  
   import { page } from "$app/stores";
   import { onMount } from "svelte";
   import { dev } from "$app/environment";
@@ -39,4 +43,21 @@
     <li>Wait for GitHub Actions to deploy your records</li>
     <li><b class="text-ctp-green">Your subdomain is live and ready to use!</b></li>
   </ol>
+  <details class="my-4 p-4 bg-ctp-base rounded-lg border border-ctp-yellow">
+    <summary class="text-lg font-bold">Ran into issues?</summary>
+    <p class="mb-2">If you got the following page, make sure you <a href="https://github.com/partofmyid/register" class="underline">forked</a> the repository <b>before</b> opening GitHub:</p>
+    <div class="px-4 py-2 flex justify-center">
+      <img class="rounded-lg" src={forkRequired} alt="fork required github error">
+    </div>
+    <hr class="my-4">
+    <h2 class="text-lg font-bold">Can't create a PR?</h2>
+    <p class="mb-2">Make sure you selected "<b>Create a new branch...</b>" in the commit dialogue:</p>
+    <div class="px-4 py-2 flex justify-center">
+      <img class="rounded-lg" src={commitToBranch} alt="fork required github error">
+    </div>
+    <p class="mb-2">After that, you should see this box in your fork's README page:</p>
+    <div class="px-4 py-2 flex justify-center">
+      <img class="rounded-lg" src={prPrompt} alt="fork required github error">
+    </div>
+  </details>
 </div>
