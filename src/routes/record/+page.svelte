@@ -95,7 +95,7 @@
       </div>
     {/if}
     {#if !disabled && atLeastOneRecord}
-      <div class="bg-ctp-surface0 w-full border-ctp-red border p-4 flex justify-center">
+      <div class="bg-ctp-base rounded-lg w-full border-ctp-red border p-4 flex justify-center">
         <span class="font-bold">Please add at least one populated record to register your subdomain.</span>
       </div>
     {:else}
