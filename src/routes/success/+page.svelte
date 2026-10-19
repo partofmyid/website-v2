@@ -40,6 +40,7 @@
   <div class="h-1 bg-ctp-surface0 my-4">
     <div class="h-full bg-ctp-lavender transition-all w-0" style="width: {counter/5*100}%"></div>
   </div>
+  <p class="text-ctp-yellow">Note: Please make sure your website is up and complete, you must provide a live preview link within your pull request description.</p>
   <h2 class="text-lg mt-4">Next Steps:</h2>
   <ol class="list-decimal">
     <li>Commit the file with your prefilled records</li>
