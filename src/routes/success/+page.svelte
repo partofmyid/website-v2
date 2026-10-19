@@ -53,11 +53,11 @@
     <h2 class="text-lg font-bold">Can't create a PR?</h2>
     <p class="mb-2">Make sure you selected "<b>Create a new branch...</b>" in the commit dialogue:</p>
     <div class="px-4 py-2 flex justify-center">
-      <img class="rounded-lg" src={commitToBranch} alt="fork required github error">
+      <img class="rounded-lg" src={commitToBranch} alt="github commit message dialogue">
     </div>
     <p class="mb-2">After that, you should see this box in your fork's README page:</p>
     <div class="px-4 py-2 flex justify-center">
-      <img class="rounded-lg" src={prPrompt} alt="fork required github error">
+      <img class="rounded-lg" src={prPrompt} alt="pull request suggestion message">
     </div>
   </details>
 </div>
