@@ -3,10 +3,10 @@
 
   let { params, data }: PageProps = $props();
   const docs = {
-    'Quickstart Registration Guide': 'quickstart',
+    'Quickstart Guide': 'quickstart',
     'Terms of Service': 'terms',
-    'Schema & Structure Reference': 'references',
-    'List of Supported Services': 'services',
+    'Schema & Structure': 'references',
+    'Supported Services': 'services',
     'Frequently Asked Questions': 'questions',
     // 'Domain Management Resources': 'learning',
     // 'Contact Support & Reporting': 'contacts',
