@@ -19,6 +19,7 @@
   let interval: ReturnType<typeof setInterval> | null = null;
 
   onMount(() => {
+    if (dev) return;
     interval = setInterval(() => {
       if (counter >= 0) return counter -= 0.1;
       if (interval) clearInterval(interval);
