@@ -1,4 +1,4 @@
-import { marked, type Tokens } from "marked";
+import { marked } from "marked";
 import { getHeadingList, gfmHeadingId, type HeadingData } from "marked-gfm-heading-id";
 import markedExtendedAlert from '@fsegurai/marked-extended-alert';
 
