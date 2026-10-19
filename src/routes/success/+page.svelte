@@ -67,4 +67,9 @@
       <img class="rounded-lg" src={prPrompt} alt="pull request suggestion message">
     </div>
   </details>
+  <details open={dev} class="mt-2 bg-ctp-base p-4 border border-ctp-overlay0 rounded-lg">
+    <summary>Advanced (Raw JSON):</summary>
+    <code>/domains/{apex}/{subdomain}.json</code>
+    <pre class="bg-ctp-mantle p-2 rounded-lg">{JSON.stringify(file, null, 2)}</pre>
+  </details>
 </div>
