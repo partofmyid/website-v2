@@ -1,5 +1,3 @@
-<!-- TODO: prefill for popular services -->
-
 <script lang="ts">
   import { ARRAY_RECORDS, getSubdomain, type DomainFile, type ArrayRecordType } from "$lib";
   import { page } from "$app/stores";
