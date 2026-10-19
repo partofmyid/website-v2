@@ -58,6 +58,13 @@ export async function loadDoc(doc: string, { announcementsOnly = true, fetchFn }
   return { toc, html }
 }
 
+export function constructURL(subdomain: string, apex: string, records: DomainFile | {} = {}) {
+  return `https://github.com/partofmyid/register/new/main/domains/${apex}?${new URLSearchParams({
+    filename: subdomain + '.json',
+    value: JSON.stringify(records, null, 2),
+  })}`;
+}
+
 export async function getSubdomain(subdomain: string, apex: string) {
   const response = await fetch(`https://raw.githubusercontent.com/partofmyid/register/refs/heads/main/domains/${apex}/${subdomain}.json`);
   const available = response.status === 404;
