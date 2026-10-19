@@ -1,4 +1,9 @@
 <script lang="ts">
+	// TODO: LOADING BAR on top of the screen based on dom isFileLoadingAllowed
+	// TODO: prefill options for /records for popular services
+  // TODO: regex checks on forum in /records
+  // TODO: simplify and make things scalable for more record types with rules in /records
+
   import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.webp';
 	import banner from '$lib/assets/banner.webp';
@@ -36,7 +41,7 @@
     <h1 class="font-bold text-ctp-lavender"><a href="/">part-of.my.id</a></h1>
     <nav class="flex gap-4">
       <a href="https://github.com/partofmyid/register">repo</a>
-      <a href="/docs/quickstart">docs</a>
+      <a href="/docs">docs</a>
       <a href="/query">query</a>
     </nav>
   </header>
