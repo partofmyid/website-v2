@@ -47,13 +47,12 @@
     <li><b class="text-ctp-red">Fill in the PR requirements checklist</b> and provide a website preview</li>
     <li>Open the Pull Request</li>
     <li>Wait for a maintainer to review and merge</li>
-    <li>???</li>
     <li>Wait for GitHub Actions to deploy your records</li>
     <li><b class="text-ctp-green">Your subdomain is live and ready to use!</b></li>
   </ol>
   <details class="my-4 p-4 bg-ctp-base rounded-lg border border-ctp-yellow">
     <summary class="text-lg font-bold">Ran into issues?</summary>
-    <p class="mb-2">If you got the following page, make sure you <a href="https://github.com/partofmyid/register" class="underline">forked</a> the repository <b>before</b> opening GitHub:</p>
+    <p class="mb-2">If you got the following page, it's normal. Just click to <a href="https://github.com/partofmyid/register/fork" class="underline">fork</a> the repository:</p>
     <div class="px-4 py-2 flex justify-center">
       <img class="rounded-lg" src={forkRequired} alt="fork required github error">
     </div>
