@@ -22,13 +22,10 @@
   let hasAorAAAAorCNAME = $derived(hasAorAAAA || showCNAME);
   let hasMXorTXT = $derived((draft.records.MX?.length ?? 0) > 0 || (draft.records.TXT?.length ?? 0) > 0);
 
-  function openRedirect() {
-    goto(`/success?${new URLSearchParams({
-      next: constructURL(subdomain, apex, draft),
-      full: `${subdomain}.${apex}`,
-    })}`);
-  }
-
+  const openRedirect = () => goto(`/success?${new URLSearchParams({
+    subdomain, apex, file: JSON.stringify(draft)
+  })}`);
+  
   onMount(async () => {
     info = await getSubdomain(subdomain, apex);
     if (info?.data) draft = { ...info.data };

@@ -3,13 +3,19 @@
   import commitToBranch from "$lib/assets/screenshots/commit-to-branch.webp";
   import prPrompt from "$lib/assets/screenshots/pr-prompt.webp";
   
+  import { constructURL } from "$lib";
+  import { dev } from "$app/environment";
   import { page } from "$app/stores";
   import { onMount } from "svelte";
-  import { dev } from "$app/environment";
 
-  let fullDomain = $derived($page.url.searchParams.get('full') ?? '');
-  let nextURL = $derived($page.url.searchParams.get('next') ?? '');
-  let counter = $state(5);
+  let params = $derived($page.url.searchParams);
+  let subdomain = $derived(params.get('subdomain') ?? '');
+  let apex = $derived(params.get('apex') ?? '');
+  let file = $derived(JSON.parse(params.get('file') ?? '{}'));
+  
+  let fullDomain = $derived(`${subdomain}.${apex}`);
+  let nextURL = $derived(constructURL(subdomain, apex, file));
+  let counter = $state(dev ? 0 : 5);
   let interval: ReturnType<typeof setInterval> | null = null;
 
   onMount(() => {
