@@ -1,17 +1,8 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
+  import { docs } from '$lib';
 
   let { params, data }: PageProps = $props();
-  const docs = {
-    'Quickstart Guide': 'quickstart',
-    'Terms of Service': 'terms',
-    'Schema & Structure': 'references',
-    'Supported Services': 'services',
-    'Frequently Asked Questions': 'questions',
-    // 'Domain Management Resources': 'learning',
-    // 'Contact Support & Reporting': 'contacts',
-  };
-
   let article: HTMLElement;
   let active = $state('');
 

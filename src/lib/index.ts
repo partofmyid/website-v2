@@ -7,6 +7,17 @@ marked.use(
   gfmHeadingId(),
 );
 
+export const docs = {
+  // 'What Is This?': 'domains101',
+  'Quickstart Guide': 'quickstart',
+  'Terms of Service': 'terms',
+  'Schema & Structure': 'references',
+  'Supported Services': 'services',
+  'Frequently Asked Questions': 'questions',
+  // 'Domain Management Resources': 'learning',
+  // 'Contact Support & Reporting': 'contacts',
+};
+
 export type DomainFile = {
   description?: string;
   owner: {
