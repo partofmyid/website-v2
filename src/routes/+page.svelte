@@ -38,7 +38,6 @@
     }
   }
 
-  
   onMount(async () => {
     setTimeout(() => typeCycleEntries([
       "satr14",
