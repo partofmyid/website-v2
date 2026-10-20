@@ -1,10 +1,9 @@
 <script lang="ts">
-	// TODO: LOADING BAR on top of the screen based on dom isFileLoadingAllowed
 	// TODO: prefill options for /records for popular services
   // TODO: regex checks on forum in /records
   // TODO: simplify and make things scalable for more record types with rules in /records
 
-  import { page } from '$app/state';
+  import { page, navigating } from '$app/state';
 	import favicon from '$lib/assets/favicon.webp';
 	import banner from '$lib/assets/banner.webp';
 	import './layout.css';
@@ -45,6 +44,9 @@
       <a href="/query">query</a>
     </nav>
   </header>
+  <div class="fixed top-0 w-full h-1 bg-ctp-base">
+    {#if navigating.to}<div class="absolute h-full bg-ctp-lavender animate-[2s_infinite_reverse_loading] ease-out"></div>{/if}
+  </div>
 
   {let clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'}
   <div class="-z-10 fixed top-0 left-0 w-40 aspect-square animate-spin bg-ctp-mantle scale-300 md:scale-400 [animation-duration:25s]" style="clip-path: {clipPath}"></div>
