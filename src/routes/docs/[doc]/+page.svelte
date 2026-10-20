@@ -1,11 +1,15 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { docs } from '$lib';
+  const docsArr = Object.entries(docs);
 
   let { params, data }: PageProps = $props();
+  let mdIndex = $derived(Object.values(docs).indexOf(params.doc));
+  let next = $derived(docsArr[mdIndex+1]);
+  let prev = $derived(docsArr[mdIndex-1]);
+  
   let article: HTMLElement;
   let active = $state('');
-
   $effect(() => {
     data;
     const headings = article.querySelectorAll('h1,h2,h3,h4,h5,h6');
@@ -45,4 +49,21 @@
     </ol>
   </details>
   <article bind:this={article}>{@html data.html}</article>
+  {#if mdIndex !== -1}
+    <div class="w-full pt-4 relative z-10">
+      {#if prev}
+        <a href={prev![1]} class="p-4 bg-ctp-base flex flex-col hover:underline absolute left-0 items-start">
+          <span class="text-sm text-ctp-subtext0 italic block">&larr; Previous</span>
+          <span class="text-xl">{prev![0]}</span>
+        </a>
+      {/if}
+      {#if next}
+        <a href={next![1]} class="p-4 bg-ctp-base flex flex-col hover:underline absolute right-0 items-end">
+          <span class="text-sm text-ctp-subtext0 italic block">Next &rarr;</span>
+          <span class="text-xl">{next![0]}</span>
+        </a>
+      {/if}
+    </div>
+  {/if}
+  <div class="sticky bottom-4 flex justify-center mb-12 mt-4"><a href="{params.doc}/#" class="p-4 bg-ctp-mantle rounded-lg border border-ctp-overlay0">&uarr;</a></div>
 </div>
