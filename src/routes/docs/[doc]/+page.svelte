@@ -50,15 +50,15 @@
   </details>
   <article bind:this={article}>{@html data.html}</article>
   {#if mdIndex !== -1}
-    <div class="w-full pt-4 relative z-10">
+    <div class="w-full py-4 relative z-10 flex flex-col-reverse sm:flex-row justify-between gap-4">
       {#if prev}
-        <a href={prev![1]} class="p-4 bg-ctp-base flex flex-col hover:underline absolute left-0 items-start">
+        <a href={prev![1]} class="p-4 bg-ctp-base flex flex-col h-fit hover:underline text-left items-start">
           <span class="text-sm text-ctp-subtext0 italic block">&larr; Previous</span>
           <span class="text-xl">{prev![0]}</span>
         </a>
       {/if}
       {#if next}
-        <a href={next![1]} class="p-4 bg-ctp-base flex flex-col hover:underline absolute right-0 items-end">
+        <a href={next![1]} class="p-4 bg-ctp-base flex flex-col h-fit hover:underline text-right items-end">
           <span class="text-sm text-ctp-subtext0 italic block">Next &rarr;</span>
           <span class="text-xl">{next![0]}</span>
         </a>
