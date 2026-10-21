@@ -65,5 +65,4 @@
       {/if}
     </div>
   {/if}
-  <div class="sticky bottom-4 flex justify-center mb-12 mt-4"><a href="{params.doc}/#" class="p-4 bg-ctp-mantle rounded-lg border border-ctp-overlay0">&uarr;</a></div>
 </div>
