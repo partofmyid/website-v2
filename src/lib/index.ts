@@ -8,7 +8,7 @@ marked.use(
 );
 
 export const docs = {
-  // 'What Is This?': 'domains101',
+  'What Is This?': 'domains101',
   'Quickstart Guide': 'quickstart',
   'Terms of Service': 'terms',
   'Schema & Structure': 'references',
